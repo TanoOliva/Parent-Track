@@ -10,7 +10,7 @@ Con ParentTrack, los padres pueden acceder fácilmente a información relevante 
 ## Funcianalidades
 
 
-### Visualización de Notas y Evaluaciones:
+### 1. Visualización de Notas y Evaluaciones:
 
 Temática: Esta funcionalidad permite a los padres y apoderados ver las notas y evaluaciones obtenidas por sus hijos en cada curso.
 Contexto de Uso: Los padres podrán acceder fácilmente a las notas de sus hijos desde sus dispositivos móviles, lo que les permitirá hacer un seguimiento regular del desempeño académico.
@@ -20,7 +20,7 @@ Permitir a los padres ver las notas y evaluaciones obtenidas en cada curso.
 Posibilidad de filtrar y ordenar las notas por fecha, curso, tipo de evaluación, etc.
 
 
-### Notificaciones de Comunicaciones de Profesores:
+### 2. Notificaciones de Comunicaciones de Profesores:
 
 Temática: Esta funcionalidad proporciona a los padres notificaciones sobre las comunicaciones enviadas por los profesores, como notas para firmar, recordatorios de eventos, reuniones de padres, etc.
 Contexto de Uso: Los padres recibirán notificaciones instantáneas en sus dispositivos móviles cada vez que un profesor envíe una comunicación importante.
@@ -30,7 +30,7 @@ Permitir a los padres ver el contenido completo de la comunicación dentro de la
 Opción para marcar las comunicaciones como leídas o archivarlas para referencia futura.
 
 
-### Calendario de Eventos Académicos:
+### 3. Calendario de Eventos Académicos:
 
 Temática: Esta funcionalidad muestra un calendario con eventos académicos importantes, como exámenes, entregas de proyectos, vacaciones escolares, etc.
 Contexto de Uso: Los padres podrán tener una visión general de los eventos académicos próximos y planificar en consecuencia.
@@ -40,7 +40,7 @@ Permitir a los padres hacer clic en un evento para ver más detalles y agregarlo
 Notificar a los padres sobre eventos próximos con recordatorios automáticos.
 
 
-### Seguimiento de Asistencia:
+### 4.Seguimiento de Asistencia:
 
 Temática: Esta funcionalidad permite a los padres hacer un seguimiento de la asistencia de sus hijos a clases.
 Contexto de Uso: Los padres podrán verificar fácilmente si sus hijos están asistiendo regularmente a clases o si han faltado.
@@ -50,7 +50,7 @@ Notificar a los padres cuando se registre una ausencia o tardanza.
 Permitir a los padres solicitar permisos de ausencia o justificar faltas directamente desde la aplicación.
 
 
-### Comunicación Directa con Profesores:
+### 5. Comunicación Directa con Profesores:
 
 Temática: Esta funcionalidad permite a los padres comunicarse directamente con los profesores de sus hijos para hacer preguntas, programar reuniones, solicitar ayuda adicional, etc.
 Contexto de Uso: Los padres podrán establecer una comunicación más directa y personalizada con los profesores para abordar cualquier inquietud académica.
