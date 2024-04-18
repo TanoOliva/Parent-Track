@@ -1,0 +1,63 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #f5f5f5; /* Gris casi blanco */
+    padding: 10px; /* Espaciado interior */
+    color: #000; /* Letras negras */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: 10px;
+    justify-content: center;
+    
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: bold; /* Texto más grueso */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Eliminar margen del ul */
+    display: flex;
+    justify-content: space-between; /* Distribuir elementos a lo largo de todo el ancho */
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar ul li:last-child {
+    margin-right: 0; /* Eliminar margen del último elemento */
+}
+
+.navbar ul li a {
+    color: #000 !important; /* Color de texto negro */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold; /* Texto más grueso */
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Cambio de color al pasar el ratón */
+}
+
+.navbar ul li a.active {
+    background-color: #999; /* Color de fondo más oscuro para la sección activa */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 8px 12px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.logo img {
+    width: 80px;
+    margin-right: 10px; /* Ajusta el espacio entre el logo y el texto si es necesario */
+}

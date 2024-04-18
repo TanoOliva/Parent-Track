@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - App de reseñas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/auth.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="scripts/back-button.js"></script>
+    <script src="scripts/signup.js"></script>
+  </head>
+  <body>
+    <div class="status-bar"></div>
+    <div class="content">
+      <div id="back-button" class="top-navbar"></div>
+      <div class="auth-container">
+        <img src="../SRC/logo.jpg">
+        <h3>Crear una nueva cuenta</h3>
+        <form class="auth" id="signup">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Nombre de usuario"
+          />
+          <input type="text" name="rut" id="rut" placeholder="RUT" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Correo electrónico"
+          />
+          <select name="region" id="region">
+            <option value="0" disabled selected>Región</option>
+            <option value="15">Región de Arica y Parinacota</option>
+            <option value="1">Región de Tarapacá</option>
+            <option value="2">Región de Antofagasta</option>
+            <option value="3">Región de Atacama</option>
+            <option value="4">Región de Coquimbo</option>
+            <option value="5">Región de Valparaíso</option>
+            <option value="13">Región Metropolitana de Santiago</option>
+            <option value="6">
+              Región del Libertador General Bernardo O'Higgins
+            </option>
+            <option value="7">Región del Maule</option>
+            <option value="16">Región de Ñuble</option>
+            <option value="8">Región del Biobío</option>
+            <option value="9">Región de La Araucanía</option>
+            <option value="14">Región de Los Ríos</option>
+            <option value="10">Región de Los Lagos</option>
+            <option value="11">
+              Región de Aysén del General Carlos Ibáñez del Campo
+            </option>
+            <option value="12">
+              Región de Magallanes y de la Antártica Chilena
+            </option>
+          </select>
+          <select name="comuna" id="comuna">
+            <option value="0" disabled selected>Comuna</option>
+          </select>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Contraseña"
+          />
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Confirme su contraseña"
+          />
+          <div class="tyc">
+            <label for="tyc"> Acepto los términos y condiciones</label>
+            <input type="checkbox" name="tyc" id="tyc" />
+          </div>
+          <button type="submit">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
