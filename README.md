@@ -22,3 +22,25 @@ Con ParentTrack, los padres pueden acceder fácilmente a información relevante 
 6. **Seguimiento de Asistencia:** Esta funcionalidad permite a los padres hacer un seguimiento de la asistencia de sus hijos a clases.
 
 ## Prototipo
+
+<div align="center">
+
+[![figma-prot-badge]][figma-prot-url] [![figma-dis-badge]][figma-dis-url]
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+[figma-prot-badge]: https://img.shields.io/badge/Ver%20prototipo%20en%20Figma-F24E1E?logo=figma&logoColor=fff&style=flat
+[figma-prot-url]:https://www.figma.com/proto/xZU3vypoe8PinN8whM0HjC/web-y-movil?type=design&node-id=43-500&t=cqU8Tn9QRFRAHXjt-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=43%3A500&mode=design
+[figma-dis-badge]: https://img.shields.io/badge/Ver%20diseño%20UI%20en%20Figma-F24E1E?logo=figma&logoColor=fff&style=flat
+[figma-dis-url]: https://www.figma.com/file/xZU3vypoe8PinN8whM0HjC/web-y-movil?type=design&node-id=0%3A1&mode=dev&t=vmIHxXMtT9RhRpxj-1
