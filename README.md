@@ -9,26 +9,16 @@ Con ParentTrack, los padres pueden acceder fácilmente a información relevante 
 
 ## Funcianalidades
 
-1. Inicio de sesion:
+1. **Inicio de sesion:** Permite a los usuarios iniciar sesion en la aplicacion.
 
-Permite a los usuarios iniciar sesion en la aplicacion.
+2. **Registro de usuario:** Permite que los usuarios se registren en la applicaion.
 
-2. Registro de usuario:
+3. **Visualización de Notas y Evaluaciones:** Permite a los padres y apoderados ver las notas y evaluaciones obtenidas por sus hijos en cada curso.
 
-Permite que los usuarios se registren en la applicaion.
+4. **Notificaciones de Comunicaciones de Profesores:** Esta funcionalidad proporciona a los padres notificaciones sobre las comunicaciones enviadas por los profesores, como notas para firmar, recordatorios de eventos, reuniones de padres, etc.
 
-3. Visualización de Notas y Evaluaciones:
+5. **Calendario de Eventos Académicos:** Esta funcionalidad muestra un calendario con eventos académicos importantes, como exámenes, entregas de proyectos, vacaciones escolares, etc.
 
-Permite a los padres y apoderados ver las notas y evaluaciones obtenidas por sus hijos en cada curso.
+6. **Seguimiento de Asistencia:** Esta funcionalidad permite a los padres hacer un seguimiento de la asistencia de sus hijos a clases.
 
-4. Notificaciones de Comunicaciones de Profesores:
-
-Esta funcionalidad proporciona a los padres notificaciones sobre las comunicaciones enviadas por los profesores, como notas para firmar, recordatorios de eventos, reuniones de padres, etc.
-
-5. Calendario de Eventos Académicos:
-
-Esta funcionalidad muestra un calendario con eventos académicos importantes, como exámenes, entregas de proyectos, vacaciones escolares, etc.
-
-6. Seguimiento de Asistencia:
-
-Esta funcionalidad permite a los padres hacer un seguimiento de la asistencia de sus hijos a clases.
+## Prototipo
