@@ -25,21 +25,24 @@ p {
 /* Estilos para los campos de entrada y el botón */
 input[type="email"],
 input[type="password"] {
-    width: 80%; /* Reducimos el ancho para que sean más cortos */
+    width: 60%; /* Reducimos el ancho para que sean más cortos */
     margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre los campos */
     padding: 10px; /* Ajustamos el padding */
     font-size: 16px; /* Ajustamos el tamaño del texto */
-    display: block; /* Aseguramos que los campos sean bloques */
+    display: block;
+    border-radius: 20xp;
+    border: 1px solid black;
+
 }
 
 button {
-  width: 80%; /* Reducimos el ancho para que sea más corto */
+  width: 60%; /* Reducimos el ancho para que sea más corto */
   margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre el botón y los campos */
   padding: 10px; /* Ajustamos el padding */
   font-size: 16px; /* Ajustamos el tamaño del texto */
   background-color: black; /* Color de fondo del botón */
   color: white; /* Color del texto del botón */
-  border: none; /* Eliminamos el borde */
+  border-radius: 20px; /* Eliminamos el borde */
   display: block; /* Aseguramos que el botón sea un bloque */
 }
 /* Estilos para el enlace de registro */
@@ -51,19 +54,20 @@ p > a {
 
 /* Estilos para el botón de Google */
 .button.google {
-  width: 80%; /* Reducimos el ancho para centrar el botón y agregar espacio a los lados */
+  width: 60%; /* Reducimos el ancho para que sea más corto */
   margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre el botón y los elementos anteriores */
   padding: 10px; /* Ajustamos el padding */
   font-size: 16px; /* Ajustamos el tamaño del texto */
-  background-color: white; /* Color de fondo del botón */
-  border: 1px solid black; /* Agregamos un borde */
+  background-color: #cccccc; /* Color de fondo gris */
+  border: none; /* Eliminamos el borde */
   display: flex; /* Convertimos en flexbox */
+  justify-content: center; /* Centramos horizontalmente */
   align-items: center; /* Centramos verticalmente */
 }
 
 /* Estilos para el logo dentro del botón de Google */
 .logo-google {
-  width: 24px; /* Ajusta el tamaño del logo según lo necesites */
+  width: 32px; /* Ajusta el tamaño del logo según lo necesites */
   margin-right: 10px; /* Agrega espacio entre el logo y el texto */
 }
 
