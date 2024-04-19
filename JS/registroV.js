@@ -1,108 +1,87 @@
-// Función para validar el dígito verificador de un RUT chileno
-function validaDV(rut) {
-    const [numero, dv] = rut.replace("-K", "-k").split("-");
-  
-    const dvVer = ((T) => {
-      let M = 0,
-        S = 1;
-      for (; T; T = Math.floor(T / 10)) S = (S + (T % 10) * (9 - (M++ % 6))) % 11;
-      return S ? S - 1 : "k";
-    })(numero);
-  
-    return dvVer == dv;
-  }
-  
-  // Se agregan las reglas personalizadas al plugin jQuery Validation
-  $.validator.addMethod(
-    "rut",
-    function (value, element) {
-      return this.optional(element) || /^[0-9]{7,8}-[0-9Kk]{1}$/.test(value);
-    },
-    "El RUT ingresado es inválido"
-  );
-  
-  $.validator.addMethod(
-    "rutdv",
-    function (value, element) {
-      return this.optional(element) || validaDV(value);
-    },
-    "El dígito verificador del RUT es inválido"
-  );
-  
-  $(document).ready(() => {
-    console.log("registroV.js cargado");
-  
-    const regionValparaisoComunas = {
-      "5": [
-        { value: "1", text: "Valparaíso" },
-        { value: "2", text: "Viña del Mar" },
-        { value: "3", text: "Concón" },
-        { value: "4", text: "Quilpué" },
-        { value: "5", text: "Villa Alemana" }
-      ]
-    };
-  
-    $("#region").change((e) => {
-      const selectedRegion = $("#region").val();
-      const comunas = regionValparaisoComunas[selectedRegion] || [];
-  
-      const comunaSelect = $("#comuna");
-      comunaSelect.empty(); // Limpia las opciones anteriores
-  
-      comunas.forEach((comuna) => {
-        comunaSelect.append(`<option value="${comuna.value}">${comuna.text}</option>`);
-      });
-    });
-  
-    // Se inicia la validación del formulario usando jQuery Validator
+$(document).ready(function () {
+    console.log("signup.js cargado");
+
+  // Se cargan las comunas para la región de Valparaíso
+  $("#region").change((e) => {
+    if ($("#region").find(":selected").val() === "5") {
+      $("#comuna").append('<option value="1">Valparaíso</option>');
+      $("#comuna").append('<option value="2">Viña del Mar</option>');
+      $("#comuna").append('<option value="3">Concón</option>');
+      $("#comuna").append('<option value="4">Quilpué</option>');
+      $("#comuna").append('<option value="5">Villa Alemana</option>');
+    }
+  });
+    // Reglas de validación
     $("#signup").validate({
       rules: {
+        username: {
+          required: true,
+          minlength: 2,
+        },
+        rut: {
+          required: true,
+          minlength: 9,
+          maxlength: 12,
+        },
         email: {
           required: true,
           email: true,
         },
+        region: {
+          required: true,
+        },
+        comuna: {
+          required: true,
+        },
         password: {
           required: true,
+          minlength: 6,
         },
         "confirm-password": {
           required: true,
           equalTo: "#password",
         },
-        rut: {
-          required: true,
-          rut: true,
-          rutdv: true,
-        },
         tyc: {
           required: true,
         },
       },
+      // Mensajes de error
       messages: {
+        username: {
+          required: "Por favor ingresa tu nombre de usuario",
+          minlength: "El nombre de usuario debe tener al menos 2 caracteres",
+        },
+        rut: {
+          required: "Por favor ingresa tu RUT",
+          minlength: "El RUT debe tener al menos 9 caracteres",
+          maxlength: "El RUT no debe tener más de 12 caracteres",
+        },
         email: {
-          required: "El email es obligatorio",
-          email: "El email no es válido",
+          required: "Por favor ingresa tu correo electrónico",
+          email: "Por favor ingresa un correo electrónico válido",
+        },
+        region: {
+          required: "Por favor selecciona tu región",
+        },
+        
+        comuna: {
+          required: "Por favor selecciona tu comuna",
         },
         password: {
-          required: "La contraseña es obligatoria",
-        },
-        rut: {
-          required: "El RUT es requerido",
-          rut: "Formato: Sin puntos, con guión",
-          rutdv: "El dígito verificador no es válido",
+          required: "Por favor ingresa una contraseña",
+          minlength: "La contraseña debe tener al menos 6 caracteres",
         },
         "confirm-password": {
-          required: "La confirmación de contraseña es requerida",
-          equalTo: "Las contraseñas deben coincidir",
+          required: "Por favor confirma tu contraseña",
+          equalTo: "Las contraseñas no coinciden",
         },
         tyc: {
-          required: "Debe aceptar los términos y condiciones",
+          required: "Debes aceptar los términos y condiciones",
         },
       },
-      submitHandler: () => {
-        // Aquí se puede realizar alguna acción al enviar el formulario
-        const email = $("#email").val();
-        const password = $("#password").val();
-        console.table({ email, password });
+      // Manejo del envío del formulario
+      submitHandler: function (form) {
+        form.submit();
       },
     });
   });
