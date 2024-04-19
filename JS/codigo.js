@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Aquí puedes implementar la lógica para enviar los datos del formulario al servidor
       });
     }
-  
+
+    
     if (window.location.pathname === '../HTML/login.html') {
       // Lógica para el formulario de inicio de sesión
       var loginForm = document.getElementById('login-form');
@@ -17,4 +18,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-  
+
