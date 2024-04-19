@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname === '/registro.html') {
+    if (window.location.pathname === '../HTML/registro.html') {
       // Lógica para el formulario de registro
       var registerForm = document.getElementById('register-form');
       registerForm.addEventListener('submit', function(event) {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   
-    if (window.location.pathname === '/login.html') {
+    if (window.location.pathname === '../HTML/login.html') {
       // Lógica para el formulario de inicio de sesión
       var loginForm = document.getElementById('login-form');
       loginForm.addEventListener('submit', function(event) {
