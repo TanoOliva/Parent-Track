@@ -7,188 +7,222 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .status-bar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 55pt;
-  }
+.status-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 55pt;
+}
   
-  .content {
-    margin: 55pt 0 56pt 0;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
+.content {
+  margin: 55pt 0 56pt 0;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
   
-  .content > .top-navbar {
-    width: 100%;
-    height: 50pt;
-    display: flex;
-    align-items: center;
-  }
-  
-  .top-navbar > svg {
-    width: 24px;
-    height: 24px;
-    margin: 6pt;
-  }
-  
-  .top-navbar > h2 {
-    margin: 0;
-    padding: 12pt 16pt;
-    font-weight: 500;
-    font-size: 16px;
-    flex: 1;
-    text-align: center;
-  }
-  
-  h3 {
-    margin: 0;
-    padding: 8pt 16pt;
-    font-weight: 500;
-    font-size: 20px;
-  }
-  
-  .content > .carousel {
-    margin-top: 20pt;
-    height: 204pt;
-  }
-  
-  hr.divisor {
-    margin: 12pt 10pt;
-    padding: 0;
-    border-top: 1px solid #11111125;
-  }
-  
-  .content > .resenas-recientes {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    height: 275px;
-  }
-  
-  .carousel-items {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 10px 15px;
-  }
-  
-  .carousel-items > .c-item {
-    width: 245px;
-    height: 200px;
-    background-color: #eee;
-    border-radius: 25px;
-    display: flex;
-    align-items: end;
-    padding: 0 20px;
-  }
-  
-  .resenas {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Safari y Chrome */
-  .resenas-recientes::-webkit-scrollbar,
-  .carousel-items::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .resena-datos-usuario {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    gap: 2px;
-  }
-  
-  .resena-datos-usuario > h5 {
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-  }
-  
-  .resena-stars > svg {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .resena-usuario {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    gap: 10px;
-  }
-  
-  .resena-stars {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .resenas > .resena {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
-    padding: 10px 15px;
-  }
-  
-  .resena-texto > p {
-    margin: 10px 0;
-    padding: 0;
-    font-size: 13px;
-  }
-  
-  .resena > button {
-    text-align: right;
-    font-size: 13px;
-    font-weight: 600;
-    margin: auto 0;
-    padding: 5px 10px;
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .bottom-tabbar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 56pt;
-    margin: 0;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  
-  .btabbar-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 10px;
-    cursor: pointer;
-    color: #999;
-    text-decoration: none;
-  }
-  
-  .btabbar-item.active {
-    color: black;
-  }
-  
-  .btabbar-item > h6 {
-    margin: 0;
-    padding: 0;
-    font-size: 10px;
-    font-weight: 400;
-  }
+.content > .top-navbar {
+  width: 100%;
+  height: 50pt;
+  display: flex;
+  align-items: center;
+}
+
+.top-navbar > svg {
+  width: 24px;
+  height: 24px;
+  margin: 6pt;
+}
+
+.top-navbar > h2 {
+  margin: 0;
+  padding: 12pt 16pt;
+  font-weight: 500;
+  font-size: 16px;
+  flex: 1;
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+  padding: 8pt 16pt;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.content > .carousel {
+  margin-top: 20pt;
+  height: 204pt;
+}
+
+hr.divisor {
+  margin: 12pt 10pt;
+  padding: 0;
+  border-top: 1px solid #11111125;
+}
+
+.content > .resenas-recientes {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 275px;
+}
+
+.carousel-items {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 10px 15px;
+}
+
+.carousel-items > .c-item {
+  width: 245px;
+  height: 200px;
+  background-color: #eee;
+  border-radius: 25px;
+  display: flex;
+  align-items: end;
+  padding: 0 20px;
+}
+
+.resenas {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Safari y Chrome */
+.resenas-recientes::-webkit-scrollbar,
+.carousel-items::-webkit-scrollbar {
+  display: none;
+}
+
+.resena-datos-usuario {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 2px;
+}
+
+.resena-datos-usuario > h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+.resena-stars > svg {
+  width: 12px;
+  height: 12px;
+}
+
+.resena-usuario {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.resena-stars {
+  display: flex;
+  gap: 5px;
+}
+
+.resenas > .resena {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 10px 15px;
+}
+
+.resena-texto > p {
+  margin: 10px 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.resena > button {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  margin: auto 0;
+  padding: 5px 10px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bottom-tabbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56pt;
+  margin: 0;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.btabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  cursor: pointer;
+  color: #999;
+  text-decoration: none;
+}
+
+.btabbar-item.active {
+  color: black;
+}
+
+.btabbar-item > h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* Estilos para el logo */
+.logo-small {
+  width: 100px; 
+  margin-bottom: 10px; 
+}
+
+/* Estilos para el texto "Bienvenid@" */
+h2 {
+  margin: 0; 
+  font-size: 24px; 
+}
+
+/* Estilos para el mensaje de introducción */
+p {
+  margin-top: 5px; /* Agrega un pequeño espacio sobre el mensaje */
+  font-size: 14px; /* Ajusta el tamaño según lo necesites */
+}
+
+/* Estilos para los campos de entrada y el botón */
+input[type="email"],
+input[type="password"],
+button {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  margin-top: 10px; /* Agrega un espacio entre los elementos */
+}
+
+/* Estilos para el enlace de registro */
+p > a {
+  display: block; /* Hace que el enlace ocupe todo el ancho disponible */
+  margin-top: 15px; /* Agrega un espacio entre el mensaje y el enlace */
+}
+
+
   
