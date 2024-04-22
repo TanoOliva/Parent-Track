@@ -1,105 +1,119 @@
 body {
-    font-family: "Inter", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(250, 250, 250);
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-  
-.status-bar {
-  position: absolute;
-  top: 0;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(250, 250, 250);
   width: 100%;
-  height: 55pt;
-}
-  
-.content {
-  margin: 55pt 0 56pt 0;
-  width: 100%;
-  flex: 1;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
-  
+
+.status-bar {
+position: absolute;
+top: 0;
+width: 100%;
+height: 55pt;
+}
+
+.content {
+margin: 55pt 0 56pt 0;
+width: 100%;
+flex: 1;
+display: flex;
+flex-direction: column;
+}
+
 .content > .top-navbar {
-  width: 100%;
-  height: 50pt;
-  display: flex;
-  align-items: center;
+width: 100%;
+height: 50pt;
+display: flex;
+align-items: center;
 }
 
 .top-navbar > svg {
-  width: 24px;
-  height: 24px;
-  margin: 6pt;
+width: 24px;
+height: 24px;
+margin: 6pt;
 }
 
 .top-navbar > h2 {
-  margin: 0;
-  padding: 12pt 16pt;
-  font-weight: 500;
-  font-size: 16px;
-  flex: 1;
-  text-align: center;
+margin: 0;
+padding: 12pt 16pt;
+font-weight: 500;
+font-size: 16px;
+flex: 1;
+text-align: center;
 }
 
 h3 {
-  margin: 0;
-  padding: 8pt 16pt;
-  font-weight: 500;
-  font-size: 20px;
+margin: 0;
+padding: 8pt 16pt;
+font-weight: 500;
+font-size: 20px;
 }
 
 .content > .carousel {
-  margin-top: 20pt;
-  height: 204pt;
+margin-top: 20pt;
+height: 204pt;
 }
 
 hr.divisor {
-  margin: 12pt 10pt;
-  padding: 0;
-  border-top: 1px solid #11111125;
+margin: 12pt 10pt;
+padding: 0;
+border-top: 1px solid #11111125;
 }
 .carousel-items {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  padding: 10px 15px;
+overflow-x: scroll;
+overflow-y: hidden;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste automático de columnas */
+gap: 20px;
+padding: 10px 15px;
 }
 .carousel-items > .c-item {
-  width: 245px;
-  height: 200px;
-  background-color: #eee;
-  border-radius: 25px;
-  display: flex;
-  align-items: end;
-  padding: 0 20px;
+width: 100%; /* Ancho del 100% para ajustarse automáticamente al tamaño de la cuadrícula */
+max-width: 245px; /* Ancho máximo para cada elemento */
+height: 200px;
+background-color: #eee;
+border-radius: 25px;
+display: flex;
+align-items: end;
+padding: 0 20px;
 }
 .logo-small {
-  width: 100px; /* Ajusta el tamaño según lo necesites */
-  margin-bottom: 20px; /* Ajusta el espacio entre el logo y el texto */
-  display: block; /* Asegura que el logo sea un bloque para centrarlo */
-  margin-left: auto; /* Centra horizontalmente el logo */
-  margin-right: auto; /* Centra horizontalmente el logo */
+width: 200px; /* Ajusta el tamaño según lo necesites */
+margin-bottom: 10px; /* Ajusta el espacio entre el logo y el texto */
+display: block; /* Asegura que el logo sea un bloque para centrarlo */
+margin-left: auto; /* Centra horizontalmente el logo */
+margin-right: auto; /* Centra horizontalmente el logo */
 }
 .logo-google {
-  width: 32px; /* Ajusta el tamaño del logo según lo necesites */
-  margin-right: 10px; /* Agrega espacio entre el logo y el texto */
+width: 32px; /* Ajusta el tamaño del logo según lo necesites */
+margin-right: 10px; /* Agrega espacio entre el logo y el texto */
 }
 .button.google {
-  width: 70%; /* Reducimos el ancho para que sea más corto */
-  margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre el botón y los elementos anteriores */
-  padding: 10px; /* Ajustamos el padding */
-  font-size: 16px; /* Ajustamos el tamaño del texto */
-  background-color: #cccccc; /* Color de fondo gris */
-  border: none; /* Eliminamos el borde */
-  display: flex; /* Convertimos en flexbox */
-  justify-content: center; /* Centramos horizontalmente */
-  align-items: center; /* Centramos verticalmente */
-  border-radius: 20px;
+width: 70%; /* Reducimos el ancho para que sea más corto */
+margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre el botón y los elementos anteriores */
+padding: 10px; /* Ajustamos el padding */
+font-size: 16px; /* Ajustamos el tamaño del texto */
+background-color: #cccccc; /* Color de fondo gris */
+border: none; /* Eliminamos el borde */
+display: flex; /* Convertimos en flexbox */
+justify-content: center; /* Centramos horizontalmente */
+align-items: center; /* Centramos verticalmente */
+border-radius: 20px;
+}
+
+/* Media Queries para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+.content > .carousel {
+  height: auto; /* Cambiamos la altura a automático para dispositivos más pequeños */
+  overflow-x: auto; /* Permitir el desplazamiento horizontal */
+  white-space: nowrap; /* Para que los elementos de la lista no se envuelvan */
+}
+.carousel-items > .c-item {
+  flex: 0 0 auto; /* Deshabilitar el crecimiento flexible */
+  width: auto; /* Ancho automático para adaptarse al contenido */
+}
 }
