@@ -29,18 +29,20 @@ Con ParentTrack, los padres pueden acceder fácilmente a información relevante 
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
 [figma-prot-badge]: https://img.shields.io/badge/Ver%20prototipo%20en%20Figma-F24E1E?logo=figma&logoColor=fff&style=flat
 [figma-prot-url]:https://www.figma.com/proto/xZU3vypoe8PinN8whM0HjC/web-y-movil?type=design&node-id=43-500&t=cqU8Tn9QRFRAHXjt-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=43%3A500&mode=design
 [figma-dis-badge]: https://img.shields.io/badge/Ver%20diseño%20UI%20en%20Figma-F24E1E?logo=figma&logoColor=fff&style=flat
 [figma-dis-url]: https://www.figma.com/file/xZU3vypoe8PinN8whM0HjC/web-y-movil?type=design&node-id=0%3A1&mode=dev&t=vmIHxXMtT9RhRpxj-1
+
+
+## Maquetación 
+
+En la carpeta HTML se encuentra index.html y registro.html
+
+En la carpeta CSS se encuentran las hojas de estilo que se utilizaron para hacer la maquetacion responsiva: auth.css y registro.css
+
+
+
+
+
+
