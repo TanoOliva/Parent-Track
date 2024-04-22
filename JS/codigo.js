@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    
+
     if (window.location.pathname === '../HTML/login.html') {
       // Lógica para el formulario de inicio de sesión
       var loginForm = document.getElementById('login-form');
@@ -18,4 +18,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-
+  
