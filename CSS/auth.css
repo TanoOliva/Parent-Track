@@ -18,15 +18,28 @@
       flex-direction: column;
       padding: 32px 20px;
       row-gap: 15px;
+
+
+      > select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="%23aaa" d="M7 10l5 5 5-5z"/></svg>')
+          no-repeat;
+        background-position: right 8px center;
+        background-size: 20px;
+        background-color: #efefef;
+      }
   
       > button {
+        text-align: center;
         padding: 12px 5px;
         background-color: #080808;
         border: 1px solid #080808;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
-        margin: 15px 32px 0 32px;
+        margin: 15px 3px 0 3px;
         border-radius: 12px;
       }
   
@@ -38,18 +51,6 @@
         background-color: #efefef;
         font-size: 16px;
         outline: none;
-      }
-  
-      /* Cambiar la flecha por defecto de los select */
-      > select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="%23aaa" d="M7 10l5 5 5-5z"/></svg>')
-          no-repeat;
-        background-position: right 8px center;
-        background-size: 20px;
-        background-color: #efefef;
       }
   
       > div.tyc {

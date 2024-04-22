@@ -93,7 +93,7 @@ width: 32px; /* Ajusta el tamaño del logo según lo necesites */
 margin-right: 10px; /* Agrega espacio entre el logo y el texto */
 }
 .button.google {
-width: 70%; /* Reducimos el ancho para que sea más corto */
+width: 75%; /* Reducimos el ancho para que sea más corto */
 margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre el botón y los elementos anteriores */
 padding: 10px; /* Ajustamos el padding */
 font-size: 16px; /* Ajustamos el tamaño del texto */
@@ -103,7 +103,13 @@ display: flex; /* Convertimos en flexbox */
 justify-content: center; /* Centramos horizontalmente */
 align-items: center; /* Centramos verticalmente */
 border-radius: 20px;
+color: black;
 }
+
+
+
+
+
 
 /* Media Queries para dispositivos más pequeños */
 @media screen and (max-width: 768px) {
@@ -116,4 +122,25 @@ border-radius: 20px;
   flex: 0 0 auto; /* Deshabilitar el crecimiento flexible */
   width: auto; /* Ancho automático para adaptarse al contenido */
 }
+}
+
+p > a {
+  display: block; /* Permite ajustar el ancho del enlace */
+  margin-top: 10px auto;
+  text-align: center;/* Agrega espacio entre el texto y el enlace */
+}
+
+.container{
+  text-align: center;
+}
+
+button {
+  width: 100%; /* Reducimos el ancho para que sea más corto */
+  margin: 10px auto; /* Centramos vertical y horizontalmente y agregamos espacio vertical entre el botón y los campos */
+  padding: 10px; /* Ajustamos el padding */
+  font-size: 16px; /* Ajustamos el tamaño del texto */
+  background-color: black; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border-radius: 20px; /* Eliminamos el borde */
+  display: block; /* Aseguramos que el botón sea un bloque */
 }
