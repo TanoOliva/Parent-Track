@@ -16,6 +16,7 @@ import Avisos from './pages/Avisos';
 import Notas from './pages/Notas';
 import Login from './pages/Login';
 import Eventos from './pages/Eventos';
+import Registro from './pages/Registro';
 import { home, list, clipboard } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -47,6 +48,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonRouterOutlet>
           <Route path="/login" component={Login} exact />
+          <Route path="/registro" component={Registro} exact /> 
           <Route path="/home" render={() => (isAuthenticated ? <Home /> : <Redirect to="/login" />)} exact />
           <Route path="/avisos" render={() => (isAuthenticated ? <Avisos /> : <Redirect to="/login" />)} exact />
           <Route path="/eventos" render={() => (isAuthenticated ? <Eventos /> : <Redirect to="/login" />)} exact />
@@ -64,18 +66,8 @@ const App: React.FC = () => {
               <Route path="/eventos" component={Eventos} exact />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
-              <IonTabButton tab="home" href="/home">
-                <IonIcon icon={home} />
-                <IonLabel>Inicio</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="notas" href="/notas">
-                <IonIcon icon={clipboard} />
-                <IonLabel>Notas</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="avisos" href="/avisos">
-                <IonIcon icon={list} />
-                <IonLabel>Avisos</IonLabel>
-              </IonTabButton>
+              
+            
             </IonTabBar>
           </IonTabs>
         )}
