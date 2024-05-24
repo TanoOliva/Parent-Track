@@ -1,6 +1,7 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonList, IonItem, IonLabel, IonButton } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonList, IonItem, IonLabel, IonButton } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
+import Header from '../components/Header';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -11,11 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>HOLA NAME</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title="Inicio" />
       <IonContent className="ion-padding">
         <IonCard>
           <IonCardHeader>

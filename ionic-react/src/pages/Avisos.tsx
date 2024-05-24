@@ -1,5 +1,6 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonAvatar } from '@ionic/react';
+import { IonContent, IonPage, IonList, IonItem, IonLabel, IonAvatar } from '@ionic/react';
+import Header from '../components/Header';
 import './Avisos.css';
 
 const Avisos: React.FC = () => {
@@ -13,11 +14,7 @@ const Avisos: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>AVISOS</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title="Avisos" />
       <IonContent>
         <IonList>
           {avisos.map(aviso => (

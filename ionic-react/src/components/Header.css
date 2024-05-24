@@ -1,0 +1,36 @@
+.sub-header {
+    background-color: #2E3A46;
+    text-align: center;
+    padding: 10px;
+    color: white;
+  }
+  
+  .sub-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .sub-header p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  
+  .tabs a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .tabs a.active {
+    background-color: #000;
+    color: white;
+  }
+  

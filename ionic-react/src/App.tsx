@@ -3,6 +3,7 @@ import { IonApp, IonRouterOutlet, IonTabs, IonTabBar, IonTabButton, IonIcon, Ion
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Avisos from './pages/Avisos';
+import Notas from './pages/Notas';  // Asegúrate de importar las nuevas páginas
 import { home, list, clipboard, calendar } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -36,6 +37,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/avisos">
             <Avisos />
+          </Route>
+          <Route exact path="/notas">
+            <Notas />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
