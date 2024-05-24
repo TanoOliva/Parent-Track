@@ -1,10 +1,21 @@
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, setupIonicReact } from '@ionic/react';
+import {
+  IonApp,
+  IonRouterOutlet,
+  IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonIcon,
+  IonLabel,
+  setupIonicReact,
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Avisos from './pages/Avisos';
-import Notas from './pages/Notas';  // Asegúrate de importar las nuevas páginas
-import { home, list, clipboard, calendar } from 'ionicons/icons';
+import Notas from './pages/Notas';
+import Login from './pages/Login';
+import { home, list, clipboard } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -27,45 +38,47 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
+const App: React.FC = () => {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+
+  return (
+    <IonApp>
+      <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/avisos">
-            <Avisos />
-          </Route>
-          <Route exact path="/notas">
-            <Notas />
-          </Route>
+          <Route path="/login" component={Login} exact />
+          <Route path="/home" render={() => (isAuthenticated ? <Home /> : <Redirect to="/login" />)} exact />
+          <Route path="/avisos" render={() => (isAuthenticated ? <Avisos /> : <Redirect to="/login" />)} exact />
+          <Route path="/notas" render={() => (isAuthenticated ? <Notas /> : <Redirect to="/login" />)} exact />
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Redirect to={isAuthenticated ? "/home" : "/login"} />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={home} />
-            <IonLabel>Inicio</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="notas" href="/notas">
-            <IonIcon icon={clipboard} />
-            <IonLabel>Notas</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="eventos" href="/eventos">
-            <IonIcon icon={calendar} />
-            <IonLabel>Eventos</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="avisos" href="/avisos">
-            <IonIcon icon={list} />
-            <IonLabel>Avisos</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+        {isAuthenticated && (
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route path="/home" component={Home} exact />
+              <Route path="/avisos" component={Avisos} exact />
+              <Route path="/notas" component={Notas} exact />
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="home" href="/home">
+                <IonIcon icon={home} />
+                <IonLabel>Inicio</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="notas" href="/notas">
+                <IonIcon icon={clipboard} />
+                <IonLabel>Notas</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="avisos" href="/avisos">
+                <IonIcon icon={list} />
+                <IonLabel>Avisos</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        )}
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
