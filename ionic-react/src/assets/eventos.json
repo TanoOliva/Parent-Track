@@ -1,0 +1,34 @@
+[
+  {
+    "nombre": "Inicio del primer semestre",
+    "fecha": "2024-03-05"
+  },
+  {
+    "nombre": "Día de la ciencia y tecnología",
+    "fecha": "2024-04-10"
+  },
+  {
+    "nombre": "Festival de deportes",
+    "fecha": "2024-06-15"
+  },
+  {
+    "nombre": "Ceremonia de clausura del primer semestre",
+    "fecha": "2024-07-20"
+  },
+  {
+    "nombre": "Inicio del segundo semestre",
+    "fecha": "2024-08-01"
+  },
+  {
+    "nombre": "Día de la independencia - Actividades culturales",
+    "fecha": "2024-09-15"
+  },
+  {
+    "nombre": "Excursión al parque ecológico",
+    "fecha": "2024-10-20"
+  },
+  {
+    "nombre": "Ceremonia de clausura del segundo semestre",
+    "fecha": "2024-12-10"
+  }
+]
