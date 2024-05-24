@@ -1,0 +1,37 @@
+.ion-padding {
+    padding: 16px;
+  }
+  
+  .ion-card {
+    margin-bottom: 16px;
+  }
+  
+  .ion-card-title {
+    font-size: 1.2em;
+  }
+  
+  .ion-grid {
+    text-align: center;
+  }
+  
+  .ion-grid p {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .ion-grid h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .ion-list p {
+    margin: 0;
+    font-size: 0.8em;
+    color: gray;
+  }
+  
+  .ion-list h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
