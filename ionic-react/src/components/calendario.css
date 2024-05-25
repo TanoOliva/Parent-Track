@@ -1,45 +1,95 @@
-.calendar {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .weekdays {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f0f0f0;
-    padding: 5px 0;
-  }
-  
-  .weekdays div {
-    width: calc(100% / 7);
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-  }
-  
-  .day-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    background-color: #fff;
-  }
-  
-  .day {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .with-event {
-    background-color: #ffc107; /* Color para días con eventos */
-  }
-  
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.weekdays, .days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weekdays > div, .days > .day-container {
+  width: calc(100% / 7);
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.weekdays > div {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.day-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+}
+
+.day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.day.with-event {
+  background-color: #d1e7dd; /* Verde claro */
+}
+
+.day.today {
+  background-color: #0d6efd; /* Azul */
+  color: white;
+}
+
+.day.empty {
+  border: none;
+  background: none;
+}
+
+.eventos-lista {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.evento {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #0d6efd;
+}
+
+.evento div {
+  margin-bottom: 5px;
+}

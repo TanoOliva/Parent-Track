@@ -28,7 +28,6 @@ const Eventos: React.FC = () => {
             {eventos.map((evento, index) => (
               <p key={index}>{evento.nombre} - {evento.fecha}</p>
             ))}
-            <IonButton expand="full">Ver todos los eventos</IonButton>
           </IonCardContent>
         </IonCard>
       </IonContent>

@@ -1,41 +1,63 @@
-import React, { useState } from 'react';
-import './calendario.css'; // Estilos del calendario, puedes personalizarlos según tus necesidades
+import React, { useState, useEffect } from 'react';
+import './calendario.css';
 
-const Calendar = ({ eventos }) => {
-  // Obtener los días con eventos
-  const diasConEventos = eventos.map(evento => new Date(evento.fecha).getDate());
+const Calendar = () => {
+  const [date, setDate] = useState(new Date());
+  const [eventos, setEventos] = useState([]);
 
-  // Crear una matriz para representar el calendario del mes actual
+  useEffect(() => {
+    fetch('../assets/eventos.json')
+      .then(response => response.json())
+      .then(data => setEventos(data))
+      .catch(error => console.error('Error cargando eventos:', error));
+  }, []);
+
+  const cambiarMes = (increment) => {
+    setDate(new Date(date.getFullYear(), date.getMonth() + increment, 1));
+  };
+
+  const obtenerNombreMes = (month) => {
+    const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    return meses[month];
+  };
+
+  const diasConEventos = eventos
+    .filter(evento => new Date(evento.fecha).getMonth() === date.getMonth() && new Date(evento.fecha).getFullYear() === date.getFullYear())
+    .map(evento => new Date(evento.fecha).getDate());
+
   const diasDelMes = [];
-  const diasEnSemana = 7; // Número de días en una semana
-  const primerDiaDelMes = new Date().getDay(); // Obtener el día de la semana del primer día del mes
-  const diasEnMes = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate(); // Obtener el número de días en el mes actual
+  const primerDiaDelMes = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+  const diasEnMes = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 
-  // Llenar los días anteriores al primer día del mes
   for (let i = 0; i < primerDiaDelMes; i++) {
-    diasDelMes.push('');
+    diasDelMes.push(<div key={`empty-${i}`} className="day empty"></div>);
   }
 
-  // Llenar los días del mes con sus números y marcar los días con eventos
   for (let i = 1; i <= diasEnMes; i++) {
     const tieneEvento = diasConEventos.includes(i);
+    const esHoy = i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear();
     diasDelMes.push(
-      <div key={i} className={tieneEvento ? 'day with-event' : 'day'}>
+      <div key={i} className={`day ${tieneEvento ? 'with-event' : ''} ${esHoy ? 'today' : ''}`}>
         {i}
       </div>
     );
   }
 
   return (
-    <div className="calendar">
+    <div className="calendar-container">
+      <div className="calendar-header">
+        <button onClick={() => cambiarMes(-1)}>&lt;</button>
+        <h2>{obtenerNombreMes(date.getMonth())} de {date.getFullYear()}</h2>
+        <button onClick={() => cambiarMes(1)}>&gt;</button>
+      </div>
       <div className="weekdays">
-        <div>Domingo</div>
-        <div>Lunes</div>
-        <div>Martes</div>
-        <div>Miércoles</div>
-        <div>Jueves</div>
-        <div>Viernes</div>
-        <div>Sábado</div>
+        <div>D</div>
+        <div>L</div>
+        <div>M</div>
+        <div>M</div>
+        <div>J</div>
+        <div>V</div>
+        <div>S</div>
       </div>
       <div className="days">
         {diasDelMes.map((dia, index) => (
@@ -43,6 +65,16 @@ const Calendar = ({ eventos }) => {
             {dia}
           </div>
         ))}
+      </div>
+      <div className="eventos-lista">
+        {eventos
+          .filter(evento => new Date(evento.fecha).getMonth() === date.getMonth() && new Date(evento.fecha).getFullYear() === date.getFullYear())
+          .map((evento, index) => (
+            <div key={index} className="evento">
+              <div>{new Date(evento.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: 'long' })}</div>
+              <div>{evento.nombre}</div>
+            </div>
+          ))}
       </div>
     </div>
   );
