@@ -1,13 +1,62 @@
+/* Mantén tu clase initials como está */
 .initials {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #ccc;
-    color: #fff;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Nueva clase para las imágenes de los avatares */
+.profesor-avatar {
+  width: 50px; /* Ajusta este valor al tamaño que desees */
+  height: 50px; /* Ajusta este valor al tamaño que desees */
+  object-fit: cover; /* Asegura que la imagen se ajuste adecuadamente al contenedor */
+  border-radius: 50%; /* Hace que la imagen sea circular */
+}
+
+
+/* Home.css */
+
+.avisos-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avisos-date {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 25px 0 0 25px;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 60px;
+}
+
+.avisos-message {
+  flex-grow: 1;
+  font-size: 1em;
+  color: #333;
+}
+
+.avisos-avatar {
+  margin-right: 10px;
+}
+
+.avisos-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+

@@ -3,12 +3,20 @@ import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardConte
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import './Home.css';
+import './Avisos.css';
+
 
 const Home: React.FC = () => {
   const history = useHistory();
   const handleAvisosClick = () => {
     history.push('/avisos');
   };
+
+  const avisos = [
+    { date: '01/05', message: 'No olvidar cartulina - Artes' },
+    { date: '10/05', message: 'Recordar útiles de aseo - Ed. Física' },
+    { date: '20/05', message: 'Revisión de tarea 24/05 - Matemática' },
+  ];
 
   return (
     <IonPage>
@@ -47,24 +55,20 @@ const Home: React.FC = () => {
           </IonCardHeader>
           <IonCardContent>
             <IonList>
-              <IonItem>
-                <IonLabel>
-                  <p>01/05</p>
-                  <h3>No olvidar cartulina - Artes</h3>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <p>10/05</p>
-                  <h3>Recordar útiles de aseo - Ed. Física</h3>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <p>20/05</p>
-                  <h3>Revisión de tarea 24/05 - Matemática</h3>
-                </IonLabel>
-              </IonItem>
+
+
+            {avisos.map((aviso, index) => (
+                <IonItem key={index} className="avisos-item">
+                  <div className="avisos-date">
+                    <p>{aviso.date}</p>
+                  </div>
+                  <IonLabel className="avisos-message">
+                    <h3>{aviso.message}</h3>
+                  </IonLabel>
+                </IonItem>
+              ))}
+
+              
             </IonList>
             <IonButton expand="full" onClick={handleAvisosClick}>ver todos</IonButton>
           </IonCardContent>
