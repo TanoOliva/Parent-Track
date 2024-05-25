@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <Header title="" />
+      <Header title="Inicio" />
       <IonContent className="ion-padding">
         <IonCard>
           <IonCardHeader>
@@ -30,11 +30,11 @@ const Home: React.FC = () => {
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  <p>29</p>
+                  <p className="asistencias">29</p>
                   <p>Asistencias</p>
                 </IonCol>
                 <IonCol>
-                  <p>0</p>
+                <p className="ausencias">0</p>
                   <p>Ausencias</p>
                 </IonCol>
                 <IonCol>
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
                   <p>Faltas</p>
                 </IonCol>
                 <IonCol>
-                  <p>100%</p>
+                  <span className="porcentaje">100%</span>
                 </IonCol>
               </IonRow>
             </IonGrid>
@@ -50,13 +50,11 @@ const Home: React.FC = () => {
         </IonCard>
 
         <IonCard>
-          <IonCardHeader style= {{ textAlign: "center"}}>
+          <IonCardHeader style={{ textAlign: "center" }}>
             <IonCardTitle>Últimos Avisos</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <IonList>
-
-
             {avisos.map((aviso, index) => (
                 <IonItem key={index} className="avisos-item">
                   <div className="avisos-date">
@@ -67,8 +65,6 @@ const Home: React.FC = () => {
                   </IonLabel>
                 </IonItem>
               ))}
-
-              
             </IonList>
             <IonButton expand="full" onClick={handleAvisosClick}>ver todos</IonButton>
           </IonCardContent>
