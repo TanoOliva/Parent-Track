@@ -10,10 +10,10 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <IonHeader>
       <IonToolbar color="primary">
-        <IonButtons slot="start">
+        <IonTitle>{title}</IonTitle>
+        <IonButtons slot="end">
           <IonMenuButton />
         </IonButtons>
-        <IonTitle>{title}</IonTitle>
       </IonToolbar>
       <div className="sub-header">
         <h2>HOLA NAME</h2>

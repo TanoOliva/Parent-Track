@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <Header title="Inicio" />
+      <Header title="" />
       <IonContent className="ion-padding">
         <IonCard>
           <IonCardHeader>
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         </IonCard>
 
         <IonCard>
-          <IonCardHeader>
+          <IonCardHeader style= {{ textAlign: "center"}}>
             <IonCardTitle>Últimos Avisos</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
