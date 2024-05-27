@@ -15,7 +15,7 @@ const Eventos: React.FC = () => {
 
   return (
     <IonPage>
-      <Header title="Eventos" />
+      <Header title="" />
       <IonContent className="ion-padding">
         {/* Coloca el calendario arriba del contenido de eventos */}
         <Calendar eventos={eventos} />

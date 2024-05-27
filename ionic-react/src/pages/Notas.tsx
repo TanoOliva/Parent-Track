@@ -48,7 +48,7 @@ const Notas: React.FC = () => {
 
   return (
     <IonPage>
-      <Header title="Notas" />
+      <Header title="" />
       <IonContent className="ion-padding">
         <div className="grade-header">1ERO MEDIO A</div>
         {subjects.map((subject) => (

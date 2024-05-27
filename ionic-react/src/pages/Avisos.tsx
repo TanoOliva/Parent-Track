@@ -21,7 +21,7 @@ const Avisos: React.FC = () => {
 
   return (
     <IonPage>
-      <Header title="Avisos" />
+      <Header title="" />
       <IonContent>
         <IonList>
           {avisos.map(aviso => (
