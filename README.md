@@ -40,9 +40,47 @@ Con ParentTrack, los padres pueden acceder fácilmente a información relevante 
 En la carpeta HTML se encuentra index.html y registro.html
 
 En la carpeta CSS se encuentran las hojas de estilo que se utilizaron para hacer la maquetacion responsiva: auth.css y registro.css
+# Entrega 2
+## Ejecucion del proyecto 
 
 
+Para ejecutar el proyecto, se debe clonar el repositorio y ejecutar los siguientes comandos en la terminal:
+```bash
+git clone -b react https://github.com/TanoOliva/Parent-Track.git
+
+cd ionic-react
+
+npm install
+
+ionic serve
+```
+
+## Formularios
 
 
+## Lectura de Json
 
+1. Se debe crear un archivo JSON con la información necesaria. En este caso, se creó el archivo Eventos.json en la carpeta src/assets.
+
+2. Para leer el arcivo:
+
+    - En la pagina de eventos en la carpeta src/pages se  importa el archivo eventos.json que contiene los datos de los eventos. La importación convierte automáticamente el contenido del archivo JSON en un objeto JavaScript.
+
+    - Se define un estado llamado eventos utilizando el hook useState. Inicialmente, el estado se establece como un array vacío.
+
+    - El hook useEffect se utiliza para cargar los datos de los eventos una vez que el componente se ha montado. Dentro del useEffect, se llama a la función setEventos para asignar los datos importados (eventosData) al estado eventos. El array vacío [] como segundo argumento de useEffect asegura que esta operación solo se ejecute una vez, cuando el componente se monta por primera vez.
+
+```typescript
+import React, { useState, useEffect } from 'react';
+import eventosData from '../assets/eventos.json';
+
+const Eventos: React.FC = () => {
+  const [eventos, setEventos] = useState([]); // Estado para almacenar los eventos
+
+  // Función para cargar los eventos desde el archivo JSON
+  useEffect(() => {
+    // Simplemente asigna los datos del archivo JSON al estado de eventos
+    setEventos(eventosData);
+  }, []);
+}
 
