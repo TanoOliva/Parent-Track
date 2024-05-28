@@ -10,18 +10,14 @@ import {
   IonLabel,
   setupIonicReact,
   IonMenu,
-  IonMenuToggle,
-  IonList,
+  IonHeader,
   IonToolbar,
   IonContent,
-  IonHeader,
-  IonItem,
   IonTitle,
+  IonList,
+  IonItem,
   IonAvatar,
   IonPage,
-  IonButtons,
-  IonMenuButton,
-
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
@@ -29,8 +25,8 @@ import Avisos from './pages/Avisos';
 import Notas from './pages/Notas';
 import Login from './pages/Login';
 import Eventos from './pages/Eventos';
-import Registro from './pages/Registro';
-import { home, list, clipboard, callOutline, headsetOutline, settingsOutline, logOutOutline, menuOutline } from 'ionicons/icons';
+import Formulario from "./pages/Formulario";
+import { home, list, clipboard, callOutline, headsetOutline, settingsOutline, logOutOutline } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -55,52 +51,65 @@ setupIonicReact();
 
 const App: React.FC = () => {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  <IonApp>
+    <IonReactRouter>
+      <IonRouterOutlet>
+        <Route exact path="/formulario">
+          <Formulario />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/formulario" />
+        </Route>
+      </IonRouterOutlet>
+    </IonReactRouter>
+  </IonApp>
 
   return (
     <IonApp>
       <IonReactRouter>
         {/* Contenido principal */}
         <IonPage id="main-content">
-
           {/* Menú lateral */}
-        <IonMenu contentId="main-content" side="start">
-          <IonHeader>
-            <IonToolbar>
-              <IonTitle>Menú</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent>
-            <div style={{ textAlign: 'center', padding: '16px' }}>
-              <IonAvatar>
-                <img src="https://via.placeholder.com/150" alt="Mi perfil" />
-              </IonAvatar>
-              <p>Mi perfil</p>
-            </div>
-            <IonList>
-              <IonItem button>
-                <IonIcon slot="start" icon={callOutline} />
-                <IonLabel>Contacto Colegio</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonIcon slot="start" icon={headsetOutline} />
-                <IonLabel>Soporte Técnico</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonIcon slot="start" icon={settingsOutline} />
-                <IonLabel>Configuración</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonIcon slot="start" icon={logOutOutline} />
-                <IonLabel>Cerrar Sesión</IonLabel>
-              </IonItem>
-            </IonList>
-          </IonContent>
-        </IonMenu>
+          {isAuthenticated && (
+            <IonMenu contentId="main-content" side="start">
+              <IonHeader>
+                <IonToolbar>
+                  <IonTitle>Menú</IonTitle>
+                </IonToolbar>
+              </IonHeader>
+              <IonContent>
+                <div style={{ textAlign: 'center', padding: '16px' }}>
+                  <IonAvatar>
+                    <img src="https://via.placeholder.com/150" alt="Mi perfil" />
+                  </IonAvatar>
+                  <p>Mi perfil</p>
+                </div>
+                <IonList>
+                  <IonItem button>
+                    <IonIcon slot="start" icon={callOutline} />
+                    <IonLabel>Contacto Colegio</IonLabel>
+                  </IonItem>
+                  <IonItem button>
+                    <IonIcon slot="start" icon={headsetOutline} />
+                    <IonLabel>Soporte Técnico</IonLabel>
+                  </IonItem>
+                  <IonItem button>
+                    <IonIcon slot="start" icon={settingsOutline} />
+                    <IonLabel>Configuración</IonLabel>
+                  </IonItem>
+                  <IonItem button>
+                    <IonIcon slot="start" icon={logOutOutline} />
+                    <IonLabel>Cerrar Sesión</IonLabel>
+                  </IonItem>
+                </IonList>
+              </IonContent>
+            </IonMenu>
+          )}
 
           <IonContent className="ion-padding">
             <IonRouterOutlet>
               <Route path="/login" component={Login} exact />
-              <Route path="/registro" component={Registro} exact />
+              <Route path="/formulario" component={Formulario} exact />
               <Route path="/home" render={() => (isAuthenticated ? <Home /> : <Redirect to="/login" />)} exact />
               <Route path="/avisos" render={() => (isAuthenticated ? <Avisos /> : <Redirect to="/login" />)} exact />
               <Route path="/eventos" render={() => (isAuthenticated ? <Eventos /> : <Redirect to="/login" />)} exact />
@@ -118,18 +127,7 @@ const App: React.FC = () => {
                   <Route path="/eventos" component={Eventos} exact />
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
-                  <IonTabButton tab="home" href="/home">
-                    <IonIcon icon={home} />
-                    <IonLabel>Inicio</IonLabel>
-                  </IonTabButton>
-                  <IonTabButton tab="avisos" href="/avisos">
-                    <IonIcon icon={list} />
-                    <IonLabel>Avisos</IonLabel>
-                  </IonTabButton>
-                  <IonTabButton tab="notas" href="/notas">
-                    <IonIcon icon={clipboard} />
-                    <IonLabel>Notas</IonLabel>
-                  </IonTabButton>
+                  
                 </IonTabBar>
               </IonTabs>
             )}

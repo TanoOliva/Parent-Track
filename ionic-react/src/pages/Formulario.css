@@ -1,0 +1,67 @@
+.ion-padding-vertical {
+  text-align: center;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.logo-small {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.custom-item {
+  margin-bottom: 15px;
+  --background: #efefef; /* Color de fondo gris */
+  --border-radius: 20px; /* Borde redondeado */
+  padding: 10px 16px;
+}
+
+.ion-input,
+.ion-select {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --background: #efefef;
+  border-radius: 20px;
+}
+
+.error-text {
+  font-size: 12px;
+  color: red;
+  margin-left: 15px;
+}
+
+.toc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toc p {
+  margin: 0;
+}
+
+.ion-toggle {
+  --handle-size: 22px; /* Ajusta según sea necesario */
+  margin-left: 10px;
+}
+
+.submit-button {
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.submit-button:disabled {
+  background-color: #f44336; /* Color para botón deshabilitado */
+}
+
+.submit-button:not(:disabled) {
+  background-color: #4caf50; /* Color para botón habilitado */
+}

@@ -24,7 +24,7 @@ const Login: React.FC = () => {
         <div className="auth-container">
           <img src="src/imagenes/logo.jpg" className="logo-small" alt="Logo" />
           <h2>Bienvenid@</h2>
-          <p>Enter your email to sign up for this app</p>
+          <p>Ingresa tu correo electrónico para iniciar sesión</p>
           <form className="auth" id="login" onSubmit={handleLogin}>
             <IonItem className="custom-item">
               <IonLabel position="floating">Correo electrónico</IonLabel>
@@ -46,12 +46,12 @@ const Login: React.FC = () => {
             </IonItem>
             <IonButton expand="block" className="button" type="submit">Iniciar sesión</IonButton>
           </form>
-          <div className="separator"> -------- or continue with --------- </div>
+          <div className="separator">-------- o continúa con --------</div>
           <IonButton expand="block" className="button google">
             <img src="src/imagenes/google.png" alt="Google Logo" className="logo-google" /> Google
           </IonButton>
-          <p>¿No tienes una cuenta aún? <br /><Link to="/registro">Regístrate aquí</Link></p> 
-          <IonText className="terms">By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></IonText>
+          <p>¿No tienes una cuenta aún? <br /><Link to="/formulario">Regístrate aquí</Link></p> 
+          <IonText className="terms">Al hacer clic en continuar, aceptas nuestros <a href="#">Términos de Servicio</a> y <a href="#">Política de Privacidad</a></IonText>
         </div>
       </IonContent>
     </IonPage>
