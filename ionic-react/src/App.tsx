@@ -115,7 +115,7 @@ const App: React.FC = () => {
               <Route path="/eventos" render={() => (isAuthenticated ? <Eventos /> : <Redirect to="/login" />)} exact />
               <Route path="/notas" render={() => (isAuthenticated ? <Notas /> : <Redirect to="/login" />)} exact />
               <Route exact path="/">
-                <Redirect to={isAuthenticated ? "/home" : "/login"} />
+                <Redirect to={isAuthenticated ? "/login" : "/home"} />
               </Route>
             </IonRouterOutlet>
             {isAuthenticated && (
