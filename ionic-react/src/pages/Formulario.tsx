@@ -10,9 +10,9 @@ import {
   IonText,
   IonToggle,
 } from "@ionic/react";
-
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 import { passMatchValidator, rutValidator } from "../misc/validators";
 import "./Formulario.css";
@@ -53,8 +53,10 @@ const Formulario: React.FC = () => {
   const [regSel, setRegSel] = useState<Region | null>(null);
   const [tycChecked, setTycChecked] = useState<boolean>(false);
 
+  const history = useHistory();
+
   useEffect(() => {
-    fetch("/regiones-comunas.json").then((res) => {
+    fetch("../public/assets/regiones.json").then((res) => {
       res.json().then((data: RegionesJSON) => {
         setRegiones(data);
       });
@@ -71,6 +73,9 @@ const Formulario: React.FC = () => {
   const submitFormulario: SubmitHandler<FormularioInput> = (data) => {
     console.log("Formulario enviado");
     console.table(data);
+    
+    // Redirigir a la página de inicio después de un registro exitoso
+    history.push('/home');
   };
 
   return (

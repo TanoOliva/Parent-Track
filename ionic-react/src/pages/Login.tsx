@@ -10,7 +10,10 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === 'admin@admin.com' && password === 'Admin') {
+    console.log('Email:', email); // Debug: Check email value
+    console.log('Password:', password); // Debug: Check password value
+    
+    if (email.trim() === 'admin@admin.com' && password === 'Admin') {
       localStorage.setItem('isAuthenticated', 'true');
       history.push('/home');
     } else {
