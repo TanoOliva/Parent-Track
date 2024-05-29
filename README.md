@@ -295,6 +295,5 @@ const Eventos: React.FC = () => {
 ```
 
 ### Base de datos
-[Diagrama de clases ](Parent-Track/img/Diagrama.png)
 
-
+![diagrama de clases](img/Diagrama.png)
