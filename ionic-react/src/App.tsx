@@ -71,7 +71,7 @@ const App: React.FC = () => {
         <IonPage id="main-content">
           {/* Menú lateral */}
           {isAuthenticated && (
-            <IonMenu contentId="main-content" side="start">
+            <IonMenu contentId="main-content" side="end">
               <IonHeader>
                 <IonToolbar>
                   <IonTitle>Menú</IonTitle>

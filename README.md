@@ -7,7 +7,7 @@ Nuestra aplicación móvil, llamada "ParentTrack", está diseñada para brindar 
 
 Con ParentTrack, los padres pueden acceder fácilmente a información relevante sobre el desempeño académico de sus hijos, recibir notificaciones importantes y estar al tanto de los eventos académicos próximos. La aplicación proporciona una experiencia intuitiva y fácil de usar, diseñada específicamente para satisfacer las necesidades de los padres y apoderados en su rol de apoyo educativo.
 
-## Funcianalidades
+## Funcionalidades
 
 1. **Inicio de sesion:** Permite a los usuarios iniciar sesion en la aplicacion.
 
@@ -48,223 +48,18 @@ Para ejecutar el proyecto, se debe clonar el repositorio y ejecutar los siguient
 ```bash
 git clone -b react https://github.com/TanoOliva/Parent-Track.git
 
+# Ingreso a la Carpeta
 cd ionic-react
 
+# Módulos a instalar para poder abrir la página
 npm install
-
 npm install react-hook-form
 
+# Inicio de la aplicación web
 ionic serve
 ```
 
 ## Formularios
-
-en este proyecto utilizamos la biblioteca `react-hook-form` para la creacion de formularios. 
-
-Se creo la siguiente `interface`:
-```typescript
-export interface FormularioInput {
-  nombre: string;
-  rut: string;
-  email: string;
-  password: string;
-  passwordConfirm: string;
-  region: string;
-  comuna: string;
-}
-```  
-#### Componentes del formulario
-
-Se creo el siguinte formulario 
-```typescript
-<form onSubmit={handleSubmit(submitFormulario)}>
-          <IonItem className="custom-item">
-            <IonInput
-              {...register("nombre", {
-                required: "El nombre es requerido",
-                minLength: {
-                  value: 3,
-                  message: "El nombre debe tener al menos 3 caracteres",
-                },
-                maxLength: {
-                  value: 20,
-                  message: "El nombre debe tener como máximo 20 caracteres",
-                },
-              })}
-              className={`${errors.nombre ? "ion-invalid" : "ion-valid"}`}
-              type="text"
-              labelPlacement="stacked"
-              placeholder="Nombre de usuario"
-            />
-          </IonItem>
-          {errors.nombre && (
-            <IonText className="error-text">{errors.nombre.message}</IonText>
-          )}
-
-          <IonItem className="custom-item">
-            <IonInput
-              type="text"
-              labelPlacement="stacked"
-              placeholder="RUT"
-              {...register("rut", {
-                validate: rutValidator,
-              })}
-            />
-          </IonItem>
-          {errors.rut && (
-            <IonText className="error-text">{errors.rut.message}</IonText>
-          )}
-
-          <IonItem className="custom-item">
-            <IonInput
-              type="text"
-              labelPlacement="stacked"
-              placeholder="Email"
-              {...register("email", {
-                required: {
-                  value: true,
-                  message: "El email es requerido",
-                },
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "El email no es válido",
-                },
-              })}
-            />
-          </IonItem>
-          {errors.email && (
-            <IonText className="error-text">{errors.email.message}</IonText>
-          )}
-
-          <IonItem className="custom-item">
-            <IonInput
-              type="password"
-              labelPlacement="stacked"
-              placeholder="Contraseña"
-              {...register("password", {
-                required: "La contraseña es requerida",
-              })}
-            >
-              <IonInputPasswordToggle color="medium" slot="end" />
-            </IonInput>
-          </IonItem>
-          {errors.password && (
-            <IonText className="error-text">{errors.password.message}</IonText>
-          )}
-
-          <IonItem className="custom-item">
-            <IonInput
-              type="password"
-              labelPlacement="stacked"
-              placeholder="Confirmar contraseña"
-              {...register("passwordConfirm", {
-                required: "Debes confirmar tu contraseña",
-                validate: passMatchValidator,
-              })}
-            >
-              <IonInputPasswordToggle color="medium" slot="end" />
-            </IonInput>
-          </IonItem>
-          {errors.passwordConfirm && (
-            <IonText className="error-text">
-              {errors.passwordConfirm.message}
-            </IonText>
-          )}
-
-          <IonItem className="custom-item">
-            <IonSelect
-              interface="action-sheet"
-              placeholder="Seleccione su región"
-              onIonChange={handleRegionChange}
-              {...register("region", {
-                required: "La región es requerida",
-              })}
-            >
-              {regiones &&
-                Object.entries(regiones.regiones).map(([key, value]) => (
-                  <IonSelectOption key={key} value={key}>
-                    {value.nombre}
-                  </IonSelectOption>
-                ))}
-            </IonSelect>
-          </IonItem>
-          {errors.region && (
-            <IonText className="error-text">{errors.region.message}</IonText>
-          )}
-
-          <IonItem className="custom-item">
-            <IonSelect
-              interface="action-sheet"
-              placeholder="Seleccione su comuna"
-              disabled={!regSel}
-              {...register("comuna", {
-                required: "La comuna es requerida",
-              })}
-            >
-              {regSel &&
-                regSel.comunas.map((comuna) => (
-                  <IonSelectOption key={comuna} value={comuna}>
-                    {comuna}
-                  </IonSelectOption>
-                ))}
-            </IonSelect>
-          </IonItem>
-          {errors.comuna && (
-            <IonText className="error-text">{errors.comuna.message}</IonText>
-          )}
-
-          <IonItem className="ion-margin-vertical toc" lines="none">
-            <IonToggle
-              checked={tycChecked}
-              onIonChange={() => setTycChecked(!tycChecked)}
-            >
-              Acepto los términos y condiciones
-            </IonToggle>
-            {!tycChecked && (
-              <IonText color="danger" className="error-text">
-                (requerido)
-              </IonText>
-            )}
-          </IonItem>
-
-          <IonButton
-            expand="full"
-            type="submit"
-            className="submit-button"
-            disabled={!isValid || !tycChecked}
-          >
-            Registrarse
-          </IonButton>
-        </form>
-      </IonContent>
-    </IonPage>
-  );
-```
-Como se puede observar en el codigo se realiza la validadcion de datos utilizando la libreria `react-hook-form`. Un ejemplo de esto seria en el campo de Region:
-``` typescript
-<IonItem className="custom-item">
-            <IonSelect
-              interface="action-sheet"
-              placeholder="Seleccione su región"
-              onIonChange={handleRegionChange}
-              {...register("region", {
-                required: "La región es requerida",
-              })}
-            >
-              {regiones &&
-                Object.entries(regiones.regiones).map(([key, value]) => (
-                  <IonSelectOption key={key} value={key}>
-                    {value.nombre}
-                  </IonSelectOption>
-                ))}
-            </IonSelect>
-          </IonItem>
-          {errors.region && (
-            <IonText className="error-text">{errors.region.message}</IonText>
-          )}
-
-```
-La validación anterior solo utiliza las validaciones por defecto de `react-hook-form`, y se restrinnge la elecion de una region. Si el campo no cumple con estas validaciones, se muestra un mensaje de error debajo del campo.
 
 
 ## Lectura de Json
@@ -293,7 +88,18 @@ const Eventos: React.FC = () => {
   }, []);
 }
 ```
+![Diagrama Relacional](https://cdn.discordapp.com/attachments/833128126342234143/1244809208520769648/Diagrama_ER_de_base_de_datos_pata_de_gallo.png?ex=6656766a&is=665524ea&hm=b4eebf9db2d8b0b5ae4f9d676dcda19fe158fc41284069120607274aa7c1db59&)
 
-### Base de datos
+## Patrones de Diseño
 
-![diagrama de clases](img/Diagrama.png)
+1. **Menú Lateral (Side Drawer Navigation):**
+   - Este patrón se observa en la implementación del menú lateral en el componente `App.tsx`. El menú lateral proporciona una forma intuitiva de navegar por la aplicación desde dispositivos móviles.
+   - Permite a los usuarios acceder fácilmente a diferentes partes de la aplicación deslizando el dedo desde el borde izquierdo de la pantalla.
+   - El menú lateral generalmente contiene opciones de navegación, como enlaces a páginas principales, ajustes y funciones relacionadas con el usuario.
+
+2. **Tarjetas Desplegables (Expandable Cards):**
+   - Este patrón se utiliza en las pantallas `Eventos`, `Notas` y `Avisos`, donde las tarjetas se expanden para mostrar más detalles al hacer clic en ellas.
+   - Proporciona una manera eficiente de presentar información adicional sin sobrecargar la interfaz de usuario.
+   - Los usuarios móviles pueden tocar una tarjeta para ver más detalles sin navegar a otra página, lo que mejora la navegación y la experiencia de usuario en dispositivos móviles.
+
+Estos dos patrones de diseño contribuyen a una experiencia de usuario móvil fluida y eficiente al proporcionar una navegación intuitiva y una presentación de información clara y concisa.
