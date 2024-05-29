@@ -59,6 +59,213 @@ ionic serve
 
 ## Formularios
 
+en este proyecto utilizamos la biblioteca `react-hook-form` para la creacion de formularios. 
+
+Se creo la siguiente `interface`:
+```typescript
+export interface FormularioInput {
+  nombre: string;
+  rut: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+  region: string;
+  comuna: string;
+}
+```  
+#### Componentes del formulario
+
+Se creo el siguinte formulario 
+```typescript
+<form onSubmit={handleSubmit(submitFormulario)}>
+          <IonItem className="custom-item">
+            <IonInput
+              {...register("nombre", {
+                required: "El nombre es requerido",
+                minLength: {
+                  value: 3,
+                  message: "El nombre debe tener al menos 3 caracteres",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "El nombre debe tener como máximo 20 caracteres",
+                },
+              })}
+              className={`${errors.nombre ? "ion-invalid" : "ion-valid"}`}
+              type="text"
+              labelPlacement="stacked"
+              placeholder="Nombre de usuario"
+            />
+          </IonItem>
+          {errors.nombre && (
+            <IonText className="error-text">{errors.nombre.message}</IonText>
+          )}
+
+          <IonItem className="custom-item">
+            <IonInput
+              type="text"
+              labelPlacement="stacked"
+              placeholder="RUT"
+              {...register("rut", {
+                validate: rutValidator,
+              })}
+            />
+          </IonItem>
+          {errors.rut && (
+            <IonText className="error-text">{errors.rut.message}</IonText>
+          )}
+
+          <IonItem className="custom-item">
+            <IonInput
+              type="text"
+              labelPlacement="stacked"
+              placeholder="Email"
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "El email es requerido",
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "El email no es válido",
+                },
+              })}
+            />
+          </IonItem>
+          {errors.email && (
+            <IonText className="error-text">{errors.email.message}</IonText>
+          )}
+
+          <IonItem className="custom-item">
+            <IonInput
+              type="password"
+              labelPlacement="stacked"
+              placeholder="Contraseña"
+              {...register("password", {
+                required: "La contraseña es requerida",
+              })}
+            >
+              <IonInputPasswordToggle color="medium" slot="end" />
+            </IonInput>
+          </IonItem>
+          {errors.password && (
+            <IonText className="error-text">{errors.password.message}</IonText>
+          )}
+
+          <IonItem className="custom-item">
+            <IonInput
+              type="password"
+              labelPlacement="stacked"
+              placeholder="Confirmar contraseña"
+              {...register("passwordConfirm", {
+                required: "Debes confirmar tu contraseña",
+                validate: passMatchValidator,
+              })}
+            >
+              <IonInputPasswordToggle color="medium" slot="end" />
+            </IonInput>
+          </IonItem>
+          {errors.passwordConfirm && (
+            <IonText className="error-text">
+              {errors.passwordConfirm.message}
+            </IonText>
+          )}
+
+          <IonItem className="custom-item">
+            <IonSelect
+              interface="action-sheet"
+              placeholder="Seleccione su región"
+              onIonChange={handleRegionChange}
+              {...register("region", {
+                required: "La región es requerida",
+              })}
+            >
+              {regiones &&
+                Object.entries(regiones.regiones).map(([key, value]) => (
+                  <IonSelectOption key={key} value={key}>
+                    {value.nombre}
+                  </IonSelectOption>
+                ))}
+            </IonSelect>
+          </IonItem>
+          {errors.region && (
+            <IonText className="error-text">{errors.region.message}</IonText>
+          )}
+
+          <IonItem className="custom-item">
+            <IonSelect
+              interface="action-sheet"
+              placeholder="Seleccione su comuna"
+              disabled={!regSel}
+              {...register("comuna", {
+                required: "La comuna es requerida",
+              })}
+            >
+              {regSel &&
+                regSel.comunas.map((comuna) => (
+                  <IonSelectOption key={comuna} value={comuna}>
+                    {comuna}
+                  </IonSelectOption>
+                ))}
+            </IonSelect>
+          </IonItem>
+          {errors.comuna && (
+            <IonText className="error-text">{errors.comuna.message}</IonText>
+          )}
+
+          <IonItem className="ion-margin-vertical toc" lines="none">
+            <IonToggle
+              checked={tycChecked}
+              onIonChange={() => setTycChecked(!tycChecked)}
+            >
+              Acepto los términos y condiciones
+            </IonToggle>
+            {!tycChecked && (
+              <IonText color="danger" className="error-text">
+                (requerido)
+              </IonText>
+            )}
+          </IonItem>
+
+          <IonButton
+            expand="full"
+            type="submit"
+            className="submit-button"
+            disabled={!isValid || !tycChecked}
+          >
+            Registrarse
+          </IonButton>
+        </form>
+      </IonContent>
+    </IonPage>
+  );
+```
+Como se puede observar en el codigo se realiza la validadcion de datos utilizando la libreria `react-hook-form`. Un ejemplo de esto seria en el campo de Region:
+``` typescript
+<IonItem className="custom-item">
+            <IonSelect
+              interface="action-sheet"
+              placeholder="Seleccione su región"
+              onIonChange={handleRegionChange}
+              {...register("region", {
+                required: "La región es requerida",
+              })}
+            >
+              {regiones &&
+                Object.entries(regiones.regiones).map(([key, value]) => (
+                  <IonSelectOption key={key} value={key}>
+                    {value.nombre}
+                  </IonSelectOption>
+                ))}
+            </IonSelect>
+          </IonItem>
+          {errors.region && (
+            <IonText className="error-text">{errors.region.message}</IonText>
+          )}
+
+```
+La validación anterior solo utiliza las validaciones por defecto de `react-hook-form`, y se restrinnge la elecion de una region. Si el campo no cumple con estas validaciones, se muestra un mensaje de error debajo del campo.
+
 
 ## Lectura de Json
 
@@ -86,5 +293,5 @@ const Eventos: React.FC = () => {
   }, []);
 }
 ```
-![Diagrama Relacional](https://cdn.discordapp.com/attachments/833128126342234143/1244809208520769648/Diagrama_ER_de_base_de_datos_pata_de_gallo.png?ex=6656766a&is=665524ea&hm=b4eebf9db2d8b0b5ae4f9d676dcda19fe158fc41284069120607274aa7c1db59&)
+![Diagrama Relacional](../Parent-Track/img/Diagrama.png)
 
