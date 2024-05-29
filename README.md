@@ -58,7 +58,11 @@ npm install react-hook-form
 # Inicio de la aplicación web
 ionic serve
 ```
+Para realizar revisiones se puede usar la sigueinte informacion de inicio de sesion:
+Usuario:admin@admin.com
+Contraseña:Admin
 
+(Si el mouse no funciona, pruebe con la tecla de tabulación. Si esto no resulta, cambie de navegador).
 ## Formularios
 
 
