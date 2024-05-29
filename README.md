@@ -84,3 +84,4 @@ const Eventos: React.FC = () => {
   }, []);
 }
 
+https://cdn.discordapp.com/attachments/833128126342234143/1244809208520769648/Diagrama_ER_de_base_de_datos_pata_de_gallo.png?ex=6656766a&is=665524ea&hm=b4eebf9db2d8b0b5ae4f9d676dcda19fe158fc41284069120607274aa7c1db59&
