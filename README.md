@@ -277,7 +277,7 @@ La validación anterior solo utiliza las validaciones por defecto de `react-hook
 
 1. Creamos un archivo JSON Eventos.json en la carpeta src/assets.
 
-2. Para leer el arcivo:
+2. Para leer el archivo:
 
     - En la pagina de eventos en la carpeta src/pages se importa el archivo eventos.json que contiene los datos de los eventos. La importación convierte automáticamente el contenido del archivo JSON en un objeto JavaScript.
 

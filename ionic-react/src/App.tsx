@@ -78,9 +78,9 @@ const App: React.FC = () => {
                 </IonToolbar>
               </IonHeader>
               <IonContent>
-                <div style={{ textAlign: 'center', padding: '16px' }}>
+                <div style={{ textAlign: 'center', padding: '16px'}}>
                   <IonAvatar>
-                    <img src="https://via.placeholder.com/150" alt="Mi perfil" />
+                    <img src="../src/imagenes/luffy.jpg" alt="Mi perfil" />
                   </IonAvatar>
                   <p>Mi perfil</p>
                 </div>
