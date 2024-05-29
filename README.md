@@ -293,5 +293,6 @@ const Eventos: React.FC = () => {
   }, []);
 }
 ```
+<img src="(../Parent-Track/img/Diagrama.png">
 ![Diagrama Relacional](../Parent-Track/img/Diagrama.png)
 
