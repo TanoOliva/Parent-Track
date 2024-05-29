@@ -9,9 +9,9 @@ Con ParentTrack, los padres pueden acceder fácilmente a información relevante 
 
 ## Funcionalidades
 
-1. **Inicio de sesion:** Permite a los usuarios iniciar sesion en la aplicacion.
+1. **Inicio de sesion:** Permite a los usuarios iniciar sesion en la aplicación.
 
-2. **Registro de usuario:** Permite que los usuarios se registren en la applicaion.
+2. **Registro de usuario:** Permite que los usuarios se registren en la aplicación.
 
 3. **Visualización de Notas y Evaluaciones:** Permite a los padres y apoderados ver las notas y evaluaciones obtenidas por sus hijos en cada curso.
 
@@ -58,15 +58,15 @@ npm install react-hook-form
 # Inicio de la aplicación web
 ionic serve
 ```
-Para realizar revisiones se puede usar la sigueinte informacion de inicio de sesion:
+Para realizar revisiones se puede usar la siguiente información de inicio de sesión:
 Usuario:admin@admin.com
 Contraseña:Admin
 
 (Si el mouse no funciona, pruebe con la tecla de tabulación. Si esto no resulta, cambie de navegador).
+
+
 ## Formularios
-
-
-en este proyecto utilizamos la biblioteca `react-hook-form` para la creacion de formularios. 
+En este proyecto utilizamos la biblioteca `react-hook-form` para la creación de formularios. 
 
 Se creo la siguiente `interface`:
 ```typescript
@@ -248,6 +248,7 @@ Se creo el siguinte formulario
   );
 ```
 Como se puede observar en el codigo se realiza la validadcion de datos utilizando la libreria `react-hook-form`. Un ejemplo de esto seria en el campo de Region:
+
 ``` typescript
 <IonItem className="custom-item">
             <IonSelect
@@ -271,7 +272,7 @@ Como se puede observar en el codigo se realiza la validadcion de datos utilizand
           )}
 
 ```
-La validación anterior solo utiliza las validaciones por defecto de `react-hook-form`, y se restrinnge la elecion de una region. Si el campo no cumple con estas validaciones, se muestra un mensaje de error debajo del campo.
+La validación anterior solo utiliza las validaciones por defecto de `react-hook-form`, y se restringe la elecion de una región. Si el campo no cumple con estas validaciones, se muestra un mensaje de error debajo del campo.
 
 ## Lectura de Json
 
@@ -286,6 +287,7 @@ La validación anterior solo utiliza las validaciones por defecto de `react-hook
     - El hook useEffect se utiliza para cargar los datos de los eventos una vez que el componente se ha montado. Dentro del useEffect, se llama a la función setEventos para asignar los datos importados (eventosData) al estado eventos. El array vacío [] como segundo argumento de useEffect asegura que esta operación solo se ejecute una vez, cuando el componente se monta por primera vez.
 
 ```typescript
+
 import React, { useState, useEffect } from 'react';
 import eventosData from '../assets/eventos.json';
 
@@ -302,6 +304,7 @@ const Eventos: React.FC = () => {
 
 ### Base de datos
 ![diagrama de clases](img/Diagrama.png)
+
 ## Patrones de Diseño
 
 1. **Menú Lateral (Side Drawer Navigation):**
