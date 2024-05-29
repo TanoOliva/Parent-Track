@@ -52,6 +52,8 @@ cd ionic-react
 
 npm install
 
+npm install react-hook-form
+
 ionic serve
 ```
 
@@ -60,11 +62,11 @@ ionic serve
 
 ## Lectura de Json
 
-1. Se debe crear un archivo JSON con la información necesaria. En este caso, se creó el archivo Eventos.json en la carpeta src/assets.
+1. Creamos un archivo JSON Eventos.json en la carpeta src/assets.
 
 2. Para leer el arcivo:
 
-    - En la pagina de eventos en la carpeta src/pages se  importa el archivo eventos.json que contiene los datos de los eventos. La importación convierte automáticamente el contenido del archivo JSON en un objeto JavaScript.
+    - En la pagina de eventos en la carpeta src/pages se importa el archivo eventos.json que contiene los datos de los eventos. La importación convierte automáticamente el contenido del archivo JSON en un objeto JavaScript.
 
     - Se define un estado llamado eventos utilizando el hook useState. Inicialmente, el estado se establece como un array vacío.
 
@@ -83,5 +85,6 @@ const Eventos: React.FC = () => {
     setEventos(eventosData);
   }, []);
 }
+```
+![Diagrama Relacional](https://cdn.discordapp.com/attachments/833128126342234143/1244809208520769648/Diagrama_ER_de_base_de_datos_pata_de_gallo.png?ex=6656766a&is=665524ea&hm=b4eebf9db2d8b0b5ae4f9d676dcda19fe158fc41284069120607274aa7c1db59&)
 
-https://cdn.discordapp.com/attachments/833128126342234143/1244809208520769648/Diagrama_ER_de_base_de_datos_pata_de_gallo.png?ex=6656766a&is=665524ea&hm=b4eebf9db2d8b0b5ae4f9d676dcda19fe158fc41284069120607274aa7c1db59&
