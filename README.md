@@ -293,5 +293,8 @@ const Eventos: React.FC = () => {
   }, []);
 }
 ```
-<img src="../Parent-Track/img/Diagrama.png">
+
+### Base de datos
+[Diagrama de clases ](../Parent-Track/img/Diagrama.png)
+
 
