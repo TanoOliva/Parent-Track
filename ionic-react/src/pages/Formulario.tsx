@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
 import {
   IonButton,
   IonContent,
   IonInput,
-  IonInputPasswordToggle,
   IonItem,
   IonPage,
   IonSelect,
@@ -10,10 +10,8 @@ import {
   IonText,
   IonToggle,
 } from "@ionic/react";
-import { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-
 import { passMatchValidator, rutValidator } from "../misc/validators";
 import "./Formulario.css";
 
@@ -56,11 +54,12 @@ const Formulario: React.FC = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("../public/assets/regiones.json").then((res) => {
-      res.json().then((data: RegionesJSON) => {
+    fetch("../public/assets/regiones.json")
+      .then((res) => res.json())
+      .then((data: RegionesJSON) => {
         setRegiones(data);
-      });
-    });
+      })
+      .catch((error) => console.error("Error al cargar regiones:", error));
   }, []);
 
   const handleRegionChange = (e: CustomEvent) => {
@@ -73,8 +72,6 @@ const Formulario: React.FC = () => {
   const submitFormulario: SubmitHandler<FormularioInput> = (data) => {
     console.log("Formulario enviado");
     console.table(data);
-    
-    // Redirigir a la página de inicio después de un registro exitoso
     history.push('/home');
   };
 
@@ -101,6 +98,7 @@ const Formulario: React.FC = () => {
               type="text"
               labelPlacement="stacked"
               placeholder="Nombre de usuario"
+              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.nombre && (
@@ -115,6 +113,7 @@ const Formulario: React.FC = () => {
               {...register("rut", {
                 validate: rutValidator,
               })}
+              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.rut && (
@@ -136,6 +135,7 @@ const Formulario: React.FC = () => {
                   message: "El email no es válido",
                 },
               })}
+              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.email && (
@@ -150,9 +150,8 @@ const Formulario: React.FC = () => {
               {...register("password", {
                 required: "La contraseña es requerida",
               })}
-            >
-              <IonInputPasswordToggle color="medium" slot="end" />
-            </IonInput>
+              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
+            />
           </IonItem>
           {errors.password && (
             <IonText className="error-text">{errors.password.message}</IonText>
@@ -167,9 +166,8 @@ const Formulario: React.FC = () => {
                 required: "Debes confirmar tu contraseña",
                 validate: passMatchValidator,
               })}
-            >
-              <IonInputPasswordToggle color="medium" slot="end" />
-            </IonInput>
+              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
+            />
           </IonItem>
           {errors.passwordConfirm && (
             <IonText className="error-text">
@@ -223,9 +221,8 @@ const Formulario: React.FC = () => {
             <IonToggle
               checked={tycChecked}
               onIonChange={() => setTycChecked(!tycChecked)}
-            >
-              Acepto los términos y condiciones
-            </IonToggle>
+            />
+            <IonText>Acepto los términos y condiciones</IonText>
             {!tycChecked && (
               <IonText color="danger" className="error-text">
                 (requerido)

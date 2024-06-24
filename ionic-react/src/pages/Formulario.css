@@ -19,8 +19,8 @@ h2 {
 
 .custom-item {
   margin-bottom: 15px;
-  --background: #efefef; /* Color de fondo gris */
-  --border-radius: 20px; /* Borde redondeado */
+  --background: #efefef;
+  --border-radius: 20px;
   padding: 10px 16px;
 }
 
@@ -44,12 +44,8 @@ h2 {
   justify-content: center;
 }
 
-.toc p {
-  margin: 0;
-}
-
 .ion-toggle {
-  --handle-size: 22px; /* Ajusta según sea necesario */
+  --handle-size: 22px;
   margin-left: 10px;
 }
 
@@ -59,9 +55,9 @@ h2 {
 }
 
 .submit-button:disabled {
-  background-color: #f44336; /* Color para botón deshabilitado */
+  background-color: #f44336;
 }
 
 .submit-button:not(:disabled) {
-  background-color: #4caf50; /* Color para botón habilitado */
+  background-color: #4caf50;
 }

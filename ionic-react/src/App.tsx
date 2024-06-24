@@ -20,6 +20,7 @@ import {
   IonPage,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+
 import Home from './pages/Home';
 import Avisos from './pages/Avisos';
 import Notas from './pages/Notas';

@@ -10,9 +10,6 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email:', email); // Debug: Check email value
-    console.log('Password:', password); // Debug: Check password value
-    
     if (email.trim() === 'admin@admin.com' && password === 'Admin') {
       localStorage.setItem('isAuthenticated', 'true');
       history.push('/home');
@@ -35,8 +32,8 @@ const Login: React.FC = () => {
                 type="email" 
                 required 
                 onIonChange={e => setEmail(e.detail.value!)} 
-                clearInput={true} // Permite limpiar el input
-              ></IonInput>
+                clearInput={true} 
+              />
             </IonItem>
             <IonItem className="custom-item">
               <IonLabel position="floating">Contraseña</IonLabel>
@@ -44,8 +41,8 @@ const Login: React.FC = () => {
                 type="password" 
                 required 
                 onIonChange={e => setPassword(e.detail.value!)} 
-                clearInput={true} // Permite limpiar el input
-              ></IonInput>
+                clearInput={true} 
+              />
             </IonItem>
             <IonButton expand="block" className="button" type="submit">Iniciar sesión</IonButton>
           </form>
