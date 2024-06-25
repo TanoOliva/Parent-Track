@@ -70,9 +70,27 @@ const Formulario: React.FC = () => {
   };
 
   const submitFormulario: SubmitHandler<FormularioInput> = (data) => {
-    console.log("Formulario enviado");
-    console.table(data);
-    history.push('/home');
+    fetch('http://localhost:3000/registro', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nombre: data.nombre,
+        email: data.email,
+        contraseña: data.password,
+        región: data.region,
+        comuna: data.comuna,
+      })
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log("Formulario enviado con éxito:", result);
+      history.push('/login');
+    })
+    .catch(error => {
+      console.error("Error al enviar el formulario:", error);
+    });
   };
 
   return (

@@ -10,12 +10,29 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim() === 'admin@admin.com' && password === 'Admin') {
-      localStorage.setItem('isAuthenticated', 'true');
-      history.push('/home');
-    } else {
-      alert('Correo electrónico o contraseña incorrectos');
-    }
+    fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        contraseña: password
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.authenticated) {
+        localStorage.setItem('isAuthenticated', 'true');
+        history.push('/home');
+      } else {
+        alert('Correo electrónico o contraseña incorrectos');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error al iniciar sesión');
+    });
   };
 
   return (
