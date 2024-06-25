@@ -107,7 +107,7 @@ const App: React.FC = () => {
             </IonMenu>
           )}
 
-          <IonContent className="ion-padding">
+          <IonContent>
             <IonRouterOutlet>
               <Route path="/login" component={Login} exact />
               <Route path="/formulario" component={Formulario} exact />
@@ -119,19 +119,6 @@ const App: React.FC = () => {
                 <Redirect to={isAuthenticated ? "/login" : "/home"} />
               </Route>
             </IonRouterOutlet>
-            {isAuthenticated && (
-              <IonTabs>
-                <IonRouterOutlet>
-                  <Route path="/home" component={Home} exact />
-                  <Route path="/avisos" component={Avisos} exact />
-                  <Route path="/notas" component={Notas} exact />
-                  <Route path="/eventos" component={Eventos} exact />
-                </IonRouterOutlet>
-                <IonTabBar slot="bottom">
-                  
-                </IonTabBar>
-              </IonTabs>
-            )}
           </IonContent>
         </IonPage>
       </IonReactRouter>
