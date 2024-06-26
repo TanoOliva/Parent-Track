@@ -21,11 +21,27 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     <IonHeader>
       <IonToolbar color="primary">
         <IonButtons slot="start">
-          <IonButton onClick={handleLogout}>Cerrar Sesión</IonButton>
+        <IonButton 
+            onClick={handleLogout} 
+            style={{ 
+              padding: '5px', 
+              borderRadius: '5px', 
+              fontSize: '0.8em',
+              backgroundColor: '#222',
+              color: 'white',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            Cerrar Sesión
+          </IonButton>
         </IonButtons>
         <IonTitle>{title}</IonTitle>
         <IonButtons slot="end">
-          <IonMenuButton />
+          <IonMenuButton 
+          style={{
+            padding: '0px',
+            margin: '0px',
+          }}/>
         </IonButtons>
       </IonToolbar>
       <div className="sub-header">
