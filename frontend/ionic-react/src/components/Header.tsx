@@ -1,3 +1,4 @@
+// Header.tsx
 import React from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonMenuButton } from '@ionic/react';
 import './Header.css';
@@ -7,6 +8,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
+  const userName = localStorage.getItem('userName') || 'Invitado';
+
   return (
     <IonHeader>
       <IonToolbar color="primary">
@@ -16,8 +19,8 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         </IonButtons>
       </IonToolbar>
       <div className="sub-header">
-        <h2>HOLA NAME</h2>
-        <p>Alumn@: Name First name Last Name Second Surname</p>
+        <h2>HOLA {userName}</h2>
+        <p>Alumn@: {userName}</p>
         <div className="tabs">
           <a href="/home" className={window.location.pathname === '/home' ? 'active' : ''}>Inicio</a>
           <a href="/notas" className={window.location.pathname === '/notas' ? 'active' : ''}>Notas</a>

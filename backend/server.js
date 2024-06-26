@@ -2,11 +2,11 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors'); // Para permitir solicitudes desde diferentes orígenes
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors()); // Permitir solicitudes desde diferentes orígenes
 
 const db = new sqlite3.Database('./mydb.sqlite3', (err) => {
   if (err) console.error(err.message);
@@ -25,12 +25,12 @@ app.post('/formulario', [
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { nombre, email, contraseña, región, comuna } = req.body;
+  const { nombre, email, contraseña } = req.body;
   const hashedPassword = await bcrypt.hash(contraseña, 10);
 
-  const sql = `INSERT INTO usuarios (nombre, email, contraseña, región, comuna) VALUES (?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO usuarios (nombre, email, contraseña) VALUES (?, ?, ?)`;
 
-  db.run(sql, [nombre, email, hashedPassword, región, comuna], function(err) {
+  db.run(sql, [nombre, email, hashedPassword], function(err) {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -61,9 +61,9 @@ app.post('/login', [
 
     bcrypt.compare(contraseña, user.contraseña, (err, result) => {
       if (result) {
-        res.json({ authenticated: true, user });
+        res.json({ message: 'Inicio de sesión exitoso', user: { nombre: user.nombre, email: user.email } });
       } else {
-        res.status(401).json({ authenticated: false, message: 'Contraseña incorrecta' });
+        res.status(401).json({ message: 'Contraseña incorrecta' });
       }
     });
   });

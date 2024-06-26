@@ -22,8 +22,9 @@ const Login: React.FC = () => {
     })
     .then(response => response.json())
     .then(data => {
-      if (data.authenticated) {
+      if (data.user) {
         localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('userName', data.user.nombre); // Almacenar el nombre del usuario
         history.push('/home');
       } else {
         alert('Correo electrónico o contraseña incorrectos');
@@ -34,7 +35,6 @@ const Login: React.FC = () => {
       alert('Error al iniciar sesión');
     });
   };
-  
 
   return (
     <IonPage>
