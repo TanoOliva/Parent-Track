@@ -25,12 +25,12 @@ app.post('/formulario', [
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { nombre, email, contraseña } = req.body;
+  const { nombre, email, contraseña, región, comuna } = req.body;
   const hashedPassword = await bcrypt.hash(contraseña, 10);
 
-  const sql = `INSERT INTO usuarios (nombre, email, contraseña) VALUES (?, ?, ?)`;
+  const sql = `INSERT INTO usuarios (nombre, email, contraseña, región, comuna) VALUES (?, ?, ?, ?, ?)`;
 
-  db.run(sql, [nombre, email, hashedPassword], function(err) {
+  db.run(sql, [nombre, email, hashedPassword, región, comuna], function(err) {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
