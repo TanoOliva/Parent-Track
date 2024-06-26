@@ -18,8 +18,10 @@ import {
   IonItem,
   IonAvatar,
   IonPage,
+  IonButton,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { useHistory } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Avisos from './pages/Avisos';
@@ -52,6 +54,13 @@ setupIonicReact();
 
 const App: React.FC = () => {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+
+  const history = useHistory();
+  const handleCerrarSesion = () => {
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userName');
+    history.push('/login');
+  };
 
   return (
     <IonApp>
@@ -86,7 +95,7 @@ const App: React.FC = () => {
                     <IonIcon slot="start" icon={settingsOutline} />
                     <IonLabel>Configuración</IonLabel>
                   </IonItem>
-                  <IonItem button>
+                  <IonItem button onClick={handleCerrarSesion}>
                     <IonIcon slot="start" icon={logOutOutline} />
                     <IonLabel>Cerrar Sesión</IonLabel>
                   </IonItem>

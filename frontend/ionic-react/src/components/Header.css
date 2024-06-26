@@ -1,5 +1,5 @@
 .sub-header {
-    background-color: #2E3A46;
+    background-color: #2b3a49;
     text-align: center;
     padding: 10px;
     color: white;
@@ -33,5 +33,13 @@
     background-color: #000;
     color: white;
   }
+
+  .logout-container {
+    text-align: right;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  
 
   
