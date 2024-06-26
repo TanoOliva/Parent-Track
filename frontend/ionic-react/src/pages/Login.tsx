@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, IonText } from '@ionic/react';
 import { useHistory, Link } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 import './Login.css';
-
+const onChange = () => {};
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -64,6 +65,7 @@ const Login: React.FC = () => {
             </IonItem>
             <IonButton expand="block" className="button" type="submit">Iniciar sesión</IonButton>
           </form>
+          <ReCAPTCHA sitekey="6LeJkAEqAAAAADlx6n8qlBzglWN8cNGbgPwgIqqX"onChange={onChange}/>
           <div className="separator">-------- o continúa con --------</div>
           <IonButton expand="block" className="button google">
             <img src="src/imagenes/google.png" alt="Google Logo" className="logo-google" /> Google
