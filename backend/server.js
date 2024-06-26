@@ -3,23 +3,19 @@ const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { check, validationResult } = require('express-validator');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({
-  origin: 'http://localhost:8100'
-}));
+app.use(cors());
 
 const db = new sqlite3.Database('./mydb.sqlite3', (err) => {
-  if (err) {
-    console.error(err.message);
-  } else {
-    console.log('Connected to the SQLite database.');
-  }
+  if (err) console.error(err.message);
+  console.log('Connected to the SQLite database.');
 });
 
-app.post('/register', [
+const { check, validationResult } = require('express-validator');
+
+app.post('/formulario', [
   check('nombre').notEmpty().withMessage('El nombre es requerido'),
   check('email').isEmail().withMessage('Debe ser un email válido'),
   check('contraseña').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres')
@@ -65,9 +61,9 @@ app.post('/login', [
 
     bcrypt.compare(contraseña, user.contraseña, (err, result) => {
       if (result) {
-        res.json({ authenticated: true, message: 'Inicio de sesión exitoso', user });
+        res.json({ authenticated: true, user });
       } else {
-        res.status(401).json({ message: 'Contraseña incorrecta' });
+        res.status(401).json({ authenticated: false, message: 'Contraseña incorrecta' });
       }
     });
   });

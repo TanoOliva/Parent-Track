@@ -70,7 +70,7 @@ const Formulario: React.FC = () => {
   };
 
   const submitFormulario: SubmitHandler<FormularioInput> = (data) => {
-    fetch('http://localhost:3000/register', {
+    fetch('http://localhost:3000/formulario', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,14 +85,17 @@ const Formulario: React.FC = () => {
     })
     .then(response => response.json())
     .then(result => {
-      console.log("Formulario enviado con éxito:", result);
-      history.push('/login');
+      if (result.id) {
+        console.log("Formulario enviado con éxito:", result);
+        history.push('/login');
+      } else {
+        console.error("Error al registrar usuario:", result);
+      }
     })
     .catch(error => {
       console.error("Error al enviar el formulario:", error);
     });
   };
-  
 
   return (
     <IonPage>
@@ -248,6 +251,7 @@ const Formulario: React.FC = () => {
             expand="full"
             type="submit"
             className="submit-button"
+            disabled={!isValid || !tycChecked}
           >
             Registrarse
           </IonButton>
