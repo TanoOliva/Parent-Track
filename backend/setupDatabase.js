@@ -15,6 +15,7 @@ db.serialize(() => {
     contraseña TEXT,
     región TEXT,
     comuna TEXT
+    role TEXT DEFAULT 'user'
   )`, (err) => {
     if (err) {
       console.error(err.message);
