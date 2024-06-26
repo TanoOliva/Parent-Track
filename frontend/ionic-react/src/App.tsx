@@ -95,10 +95,7 @@ const App: React.FC = () => {
                     <IonIcon slot="start" icon={settingsOutline} />
                     <IonLabel>Configuración</IonLabel>
                   </IonItem>
-                  <IonItem button onClick={handleCerrarSesion}>
-                    <IonIcon slot="start" icon={logOutOutline} />
-                    <IonLabel>Cerrar Sesión</IonLabel>
-                  </IonItem>
+                 
                 </IonList>
               </IonContent>
             </IonMenu>
