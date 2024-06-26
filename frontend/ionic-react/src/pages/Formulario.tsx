@@ -70,7 +70,7 @@ const Formulario: React.FC = () => {
   };
 
   const submitFormulario: SubmitHandler<FormularioInput> = (data) => {
-    fetch('http://localhost:3000/registro', {
+    fetch('http://localhost:3000/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,6 +92,7 @@ const Formulario: React.FC = () => {
       console.error("Error al enviar el formulario:", error);
     });
   };
+  
 
   return (
     <IonPage>
@@ -116,7 +117,6 @@ const Formulario: React.FC = () => {
               type="text"
               labelPlacement="stacked"
               placeholder="Nombre de usuario"
-              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.nombre && (
@@ -131,7 +131,6 @@ const Formulario: React.FC = () => {
               {...register("rut", {
                 validate: rutValidator,
               })}
-              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.rut && (
@@ -153,7 +152,6 @@ const Formulario: React.FC = () => {
                   message: "El email no es válido",
                 },
               })}
-              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.email && (
@@ -168,7 +166,6 @@ const Formulario: React.FC = () => {
               {...register("password", {
                 required: "La contraseña es requerida",
               })}
-              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.password && (
@@ -184,7 +181,6 @@ const Formulario: React.FC = () => {
                 required: "Debes confirmar tu contraseña",
                 validate: passMatchValidator,
               })}
-              onIonChange={(e) => console.log(e.detail.value)} // Agrega esto para depurar
             />
           </IonItem>
           {errors.passwordConfirm && (
@@ -252,7 +248,6 @@ const Formulario: React.FC = () => {
             expand="full"
             type="submit"
             className="submit-button"
-            disabled={!isValid || !tycChecked}
           >
             Registrarse
           </IonButton>

@@ -1,14 +1,12 @@
 const sqlite3 = require('sqlite3').verbose();
 
-// Abrir la base de datos (o crearla si no existe)
 const db = new sqlite3.Database('./mydb.sqlite3', (err) => {
   if (err) {
-    return console.error(err.message);
+    console.error(err.message);
   }
-  console.log('Conectado exitosamente a la base de datos SQLite.');
+  console.log('Connected to the SQLite database.');
 });
 
-// Crear las tablas
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,11 +24,9 @@ db.serialize(() => {
   });
 });
 
-// Cerrar la conexión a la base de datos
 db.close((err) => {
   if (err) {
     console.error(err.message);
   }
   console.log('La conexión a la base de datos ha sido cerrada.');
 });
-

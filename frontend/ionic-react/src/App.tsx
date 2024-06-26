@@ -52,18 +52,6 @@ setupIonicReact();
 
 const App: React.FC = () => {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/formulario">
-          <Formulario />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/formulario" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
 
   return (
     <IonApp>
